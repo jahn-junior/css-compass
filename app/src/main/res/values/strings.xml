@@ -8,5 +8,20 @@
     <string name="resources_text">Resources</string>
     <string name="about_text">About</string>
 
+    <string name="about_info">
+        CSS Compass was designed with the intention of helping both incoming and current CSS
+        students reach their goals. The development team sought to compile useful resources that
+        they felt aided their own journey, so that new students would have a launchpad for becoming
+        successful students/programmers.
+    </string>
+
+    <string name="about_header">Our Mission</string>
+
+    <string name="contact_info">
+        Contact Us:\n
+        JJ Coldiron: ecoldi@uw.edu\n
+        Danie Oum: // insert email\n
+        Derek Ruiz-Garcia: // insert email
+    </string>
 
 </resources>

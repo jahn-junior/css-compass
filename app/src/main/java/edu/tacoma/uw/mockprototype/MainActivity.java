@@ -1,5 +1,7 @@
 package edu.tacoma.uw.mockprototype;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -19,6 +21,29 @@ public class MainActivity extends AppCompatActivity {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
+        });
+
+        findViewById(R.id.login_button).setOnClickListener(v -> {
+
+        });
+
+        findViewById(R.id.set_button).setOnClickListener(v -> {
+            Uri webpage = Uri.parse("https://www.tacoma.uw.edu/set/student/resources");
+            Intent webIntent = new Intent(Intent.ACTION_VIEW, webpage);
+            startActivity(webIntent);
+        });
+
+        findViewById(R.id.study_button).setOnClickListener(v -> {
+            // do something
+        });
+
+        findViewById(R.id.resources_button).setOnClickListener(v -> {
+            // do something
+        });
+
+        findViewById(R.id.about_button).setOnClickListener(v -> {
+            Intent intent = new Intent(getApplicationContext(), AboutActivity.class);
+            startActivity(intent);
         });
     }
 }
