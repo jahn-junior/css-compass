@@ -1,6 +1,12 @@
 <resources>
     <string name="app_name">Mock Prototype</string>
-
     <string name="app_logo">University of Washington Tacoma CSS Program Logo</string>
+
+    <string name="login_text">Log in / Sign up</string>
+    <string name="set_text">SET Program</string>
+    <string name="study_text">Study Skills</string>
+    <string name="resources_text">Resources</string>
+    <string name="about_text">About</string>
+
 
 </resources>

@@ -31,35 +31,35 @@
             android:id="@+id/buttonLoginSignUp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Log in / Sign up"
-            android:layout_marginBottom="8dp" />
+            android:layout_marginBottom="8dp"
+            android:text="@string/login_text" />
 
         <Button
             android:id="@+id/buttonSetProgram"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="SET Program"
-            android:layout_marginBottom="8dp" />
+            android:layout_marginBottom="8dp"
+            android:text="@string/set_text" />
 
         <Button
             android:id="@+id/buttonStudySkills"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Study Skills"
-            android:layout_marginBottom="8dp" />
+            android:layout_marginBottom="8dp"
+            android:text="@string/study_text" />
 
         <Button
             android:id="@+id/buttonResources"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Resources"
-            android:layout_marginBottom="8dp" />
+            android:layout_marginBottom="8dp"
+            android:text="@string/resources_text" />
 
         <Button
             android:id="@+id/buttonAbout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="About"
-            android:layout_marginBottom="8dp" />
+            android:layout_marginBottom="8dp"
+            android:text="@string/about_text" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
