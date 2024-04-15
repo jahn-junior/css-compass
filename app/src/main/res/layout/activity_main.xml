@@ -28,38 +28,38 @@
             android:scaleType="fitCenter"/>
 
         <Button
-            android:id="@+id/buttonLoginSignUp"
+            android:id="@+id/login_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Log in / Sign up"
-            android:layout_marginBottom="8dp" />
+            android:layout_marginBottom="8dp"
+            android:text="@string/login_text" />
 
         <Button
-            android:id="@+id/buttonSetProgram"
+            android:id="@+id/set_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="SET Program"
-            android:layout_marginBottom="8dp" />
+            android:layout_marginBottom="8dp"
+            android:text="@string/set_text" />
 
         <Button
-            android:id="@+id/buttonStudySkills"
+            android:id="@+id/study_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Study Skills"
-            android:layout_marginBottom="8dp" />
+            android:layout_marginBottom="8dp"
+            android:text="@string/study_text" />
 
         <Button
-            android:id="@+id/buttonResources"
+            android:id="@+id/resources_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Resources"
-            android:layout_marginBottom="8dp" />
+            android:layout_marginBottom="8dp"
+            android:text="@string/resources_text" />
 
         <Button
-            android:id="@+id/buttonAbout"
+            android:id="@+id/about_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="About"
-            android:layout_marginBottom="8dp" />
+            android:layout_marginBottom="8dp"
+            android:text="@string/about_text" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
