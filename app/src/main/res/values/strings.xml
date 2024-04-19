@@ -40,4 +40,16 @@
     <string name="student_res_text">SET Student Resources</string>
     <string name="career_dev_text">Career Development</string>
 
+    <string name="study_skills_header">Study Skills</string>
+    <string name="advising_text">Academic Advising</string>
+    <string name="workshop_text">Supplemental Workshops</string>
+    <string name="leetcode_text">LeetCode</string>
+    <string name="tlc_text">Teaching and Learning Center</string>
+
+    <string name="resources_header">Resources</string>
+    <string name="pantry_text">The Pantry</string>
+    <string name="study_space_text">Campus Study Spaces</string>
+    <string name="dubnet_text">DUBNET</string>]
+    <string name="parking_text">Parking Info</string>
+
 </resources>

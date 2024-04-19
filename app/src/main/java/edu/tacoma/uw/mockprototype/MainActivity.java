@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         findViewById(R.id.login_button).setOnClickListener(v -> {
-
+            // do something
         });
 
         findViewById(R.id.set_button).setOnClickListener(v -> {
@@ -33,11 +33,13 @@ public class MainActivity extends AppCompatActivity {
         });
 
         findViewById(R.id.study_button).setOnClickListener(v -> {
-            // do something
+            Intent intent = new Intent(getApplicationContext(), StudySkillsActivity.class);
+            startActivity(intent);
         });
 
         findViewById(R.id.resources_button).setOnClickListener(v -> {
-            // do something
+            Intent intent = new Intent(getApplicationContext(), ResourcesActivity.class);
+            startActivity(intent);
         });
 
         findViewById(R.id.about_button).setOnClickListener(v -> {
