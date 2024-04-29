@@ -26,10 +26,14 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
+    buildFeatures{
+        viewBinding= true
+    }
 }
 
 dependencies {
-
+    implementation("com.android.volley:volley:1.2.1")//Allow to use GET and POST for http requests
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
