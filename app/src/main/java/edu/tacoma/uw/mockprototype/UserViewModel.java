@@ -88,4 +88,33 @@ public class UserViewModel extends AndroidViewModel {
         Volley.newRequestQueue(getApplication().getApplicationContext())
                 .add(request);
     }
+
+    // This autenticates the user using the passed email and password.
+    public void authenticateUser(String email, String pwd) {
+        String url = "https://students.washington.edu/djruiz49/db_css_compass/login.php"; // The location of the php file in the database
+        JSONObject body = new JSONObject();
+        try {
+            body.put("email", email);
+            body.put("password", pwd);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        Request request = new JsonObjectRequest(
+                Request.Method.POST,
+                url,
+                body, //no body for this get request
+                mResponse::setValue,
+                this::handleError);
+
+        Log.i("UserViewModel", request.getUrl().toString());
+        request.setRetryPolicy(new DefaultRetryPolicy(
+                10_000,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        //Instantiate the RequestQueue and add the request to the queue
+        Volley.newRequestQueue(getApplication().getApplicationContext())
+                .add(request);
+    }
+
 }
