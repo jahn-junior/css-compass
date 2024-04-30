@@ -26,14 +26,6 @@
             android:contentDescription="@string/app_logo"
             android:layout_marginBottom="24dp"
             android:scaleType="fitCenter"/>
-        <!--
-        <Button
-            android:id="@+id/login_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:text="@string/login_text" />
-        -->
         <Button
             android:id="@+id/set_button"
             android:layout_width="match_parent"
@@ -61,5 +53,13 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:text="@string/about_text" />
+
+        <Button
+            android:id="@+id/logout_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="@string/action_logout" />
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

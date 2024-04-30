@@ -3,6 +3,7 @@ package edu.tacoma.uw.mockprototype;
 import static android.content.ContentValues.TAG;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -88,15 +89,15 @@ public class LoginFragment extends Fragment {
                     String result = (String) response.get("result");
                     if (result.equals("success")) {
                         Toast.makeText(this.getContext(), "User logged in", Toast.LENGTH_LONG).show();
-//                        SharedPreferences sharedPreferences = getActivity().getSharedPreferences(getString(R.string.LOGIN_PREFS)
-//                                , Context.MODE_PRIVATE);
-//                        sharedPreferences.edit().putBoolean(getString(R.string.LOGGEDIN), true)
-//                                .commit();
-//                        //Go to the animalActivity
-//                        Intent intent = new Intent(getContext(), AnimalActivity.class); //Create an intent to go to the animalActivity
-//                        startActivity(intent);                                          //Start the activity
-//                        requireActivity().finish();                                     //Remove the old activity linked to this fragment
-//                        //
+                        // Set the preferences and set logged in to true
+                        SharedPreferences sharedPreferences = getActivity().getSharedPreferences(getString(R.string.LOGIN_PREFS)
+                                , Context.MODE_PRIVATE);
+                        sharedPreferences.edit().putBoolean(getString(R.string.LOGGEDIN), true)
+                                .commit();
+                        //Go to the mainActivity after logging in.
+                        Intent intent = new Intent(getContext(), MainActivity.class); //Create an intent to go to the mainActivity
+                        startActivity(intent);                                        //Start the activity
+                        requireActivity().finish();                                   //Remove the old activity linked to this fragment
                     } else {
                         Toast.makeText(this.getContext(), "User failed to authenticate", Toast.LENGTH_LONG).show();
 
