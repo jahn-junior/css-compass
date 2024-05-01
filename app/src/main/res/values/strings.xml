@@ -2,7 +2,7 @@
     <string name="app_name">Mock Prototype</string>
     <string name="app_logo">University of Washington Tacoma CSS Program Logo</string>
 
-    <string name="login_text">Log in / Sign up</string>
+    <!--<string name="login_text">Log in / Sign up</string> -->
     <string name="set_text">SET Program</string>
     <string name="study_text">Study Skills</string>
     <string name="resources_text">Resources</string>
@@ -21,7 +21,25 @@
         Contact Us:\n
         JJ Coldiron: ecoldi@uw.edu\n
         Danie Oum: // insert email\n
-        Derek Ruiz-Garcia: // insert email
+        Derek Ruiz-Garcia: // djruiz49@uw.edu
     </string>
+
+    <!-- Register fragment text -->
+    <string name="email_hint">Enter your email</string>
+    <string name="pwd_hint">Enter your password</string>
+    <string name="register_text">REGISTER</string>
+
+    <!-- Login fragment text -->
+    <string name="login_text">LOGIN</string>
+    <string name="register_navigate_text">Click here to Register!</string>
+
+    <!-- Login fragment text $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$4 change the autentication practice!!! edu.tacoma.uw.mmuppa.authenticationpractice.PREFS-->
+    <string name="LOGIN_PREFS">edu.tacoma.uw.djruiz49.authenticationpractice.PREFS</string>
+    <string name="LOGGEDIN">loggedin</string>
+
+    <string name="action_logout">Logout</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

@@ -1,8 +1,11 @@
 package edu.tacoma.uw.mockprototype;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,10 +26,6 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        findViewById(R.id.login_button).setOnClickListener(v -> {
-
-        });
-
         findViewById(R.id.set_button).setOnClickListener(v -> {
             Uri webpage = Uri.parse("https://www.tacoma.uw.edu/set/student/resources");
             Intent webIntent = new Intent(Intent.ACTION_VIEW, webpage);
@@ -44,6 +43,16 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.about_button).setOnClickListener(v -> {
             Intent intent = new Intent(getApplicationContext(), AboutActivity.class);
             startActivity(intent);
+        });
+
+        // This will add the listener to the logout button, setting the activity as the loginActivity
+        findViewById(R.id.logout_button).setOnClickListener(v -> {
+                SharedPreferences sharedPreferences = getSharedPreferences(getString(R.string.LOGIN_PREFS), Context.MODE_PRIVATE);
+                sharedPreferences.edit().putBoolean(getString(R.string.LOGGEDIN), false).commit();
+
+                Intent i = new Intent(this, LoginActivity.class);
+                startActivity(i);
+                finish();
         });
     }
 }
