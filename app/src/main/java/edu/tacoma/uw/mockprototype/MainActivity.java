@@ -27,17 +27,18 @@ public class MainActivity extends AppCompatActivity {
         });
 
         findViewById(R.id.set_button).setOnClickListener(v -> {
-            Uri webpage = Uri.parse("https://www.tacoma.uw.edu/set/student/resources");
-            Intent webIntent = new Intent(Intent.ACTION_VIEW, webpage);
-            startActivity(webIntent);
+            Intent intent = new Intent(getApplicationContext(), SetProgramActivity.class);
+            startActivity(intent);
         });
 
         findViewById(R.id.study_button).setOnClickListener(v -> {
-            // do something
+            Intent intent = new Intent(getApplicationContext(), StudySkillsActivity.class);
+            startActivity(intent);
         });
 
         findViewById(R.id.resources_button).setOnClickListener(v -> {
-            // do something
+            Intent intent = new Intent(getApplicationContext(), ResourcesActivity.class);
+            startActivity(intent);
         });
 
         findViewById(R.id.about_button).setOnClickListener(v -> {
