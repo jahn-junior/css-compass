@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Mock Prototype"
+rootProject.name = "CSS Compass"
 include(":app")
  
