@@ -1,4 +1,4 @@
-package edu.tacoma.uw.mockprototype;
+package edu.tacoma.uw.csscompass;
 
 import static android.content.ContentValues.TAG;
 
@@ -17,7 +17,7 @@ import androidx.lifecycle.ViewModelProvider;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import edu.tacoma.uw.mockprototype.databinding.FragmentRegisterBinding;
+import edu.tacoma.uw.csscompass.databinding.FragmentRegisterBinding;
 
 /**
  * A simple {@link Fragment} subclass.

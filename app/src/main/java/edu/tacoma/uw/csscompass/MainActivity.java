@@ -1,4 +1,4 @@
-package edu.tacoma.uw.mockprototype;
+package edu.tacoma.uw.csscompass;
 
 import android.content.Context;
 import android.content.Intent;
