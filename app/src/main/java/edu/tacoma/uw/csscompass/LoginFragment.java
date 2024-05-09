@@ -1,4 +1,4 @@
-package edu.tacoma.uw.mockprototype;
+package edu.tacoma.uw.csscompass;
 
 import static android.content.ContentValues.TAG;
 
@@ -22,7 +22,7 @@ import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import edu.tacoma.uw.mockprototype.databinding.FragmentLoginBinding;
+import edu.tacoma.uw.csscompass.databinding.FragmentLoginBinding;
 
 /**
  * A simple {@link Fragment} subclass.
