@@ -1,9 +1,8 @@
 <resources>
-    <string name="app_name">Mock Prototype</string>
+    <string name="app_name">CSS Compass</string>
     <string name="app_logo">University of Washington Tacoma CSS Program Logo</string>
 
-    <!--<string name="login_text">Log in / Sign up</string> -->
-    <string name="set_text">SET Program</string>
+    <string name="set_text">SET Program Resources</string>
     <string name="study_text">Study Skills</string>
     <string name="resources_text">Resources</string>
     <string name="about_text">About</string>
@@ -41,5 +40,32 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="set_header">SET Program Resources</string>
+
+    <string name="set_program_body">
+        The School of Engineering and Technology (SET) at the University of Washington Tacoma
+        prepares our students to become future leaders in a variety of computer, electrical,
+        mechanical and civil engineering fields. Students enrolled in the SET program go on to
+        develop real world solutions in embedded systems, information technology, information
+        systems, and computer software design, development and maintenance. The curriculum provides
+        students the theoretical grounding to promote lifelong evolution in their field while also
+        preparing them to become effective innovators and entrepreneurs.
+    </string>
+
+    <string name="set_button_text">SET Homepage</string>
+    <string name="student_res_text">SET Student Resources</string>
+    <string name="career_dev_text">Career Development</string>
+
+    <string name="study_skills_header">Study Skills</string>
+    <string name="advising_text">Academic Advising</string>
+    <string name="workshop_text">Supplemental Workshops</string>
+    <string name="leetcode_text">LeetCode</string>
+    <string name="tlc_text">Teaching and Learning Center</string>
+
+    <string name="resources_header">Resources</string>
+    <string name="pantry_text">The Pantry</string>
+    <string name="study_space_text">Campus Study Spaces</string>
+    <string name="dubnet_text">DUBNET</string>]
+    <string name="parking_text">Parking Info</string>
 
 </resources>

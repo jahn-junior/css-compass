@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace = "edu.tacoma.uw.mockprototype"
+    namespace = "edu.tacoma.uw.csscompass"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "edu.tacoma.uw.mockprototype"
+        applicationId = "edu.tacoma.uw.csscompass"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
