@@ -22,7 +22,7 @@
             android:id="@+id/imageViewLogo"
             android:layout_width="200dp"
             android:layout_height="200dp"
-            android:src="@mipmap/logouwnobackground"
+            android:src="@mipmap/css_compass_logo"
             android:contentDescription="@string/app_logo"
             android:layout_marginBottom="24dp"
             android:scaleType="fitCenter"/>

@@ -22,7 +22,7 @@
             android:id="@+id/imageView2"
             android:layout_width="200dp"
             android:layout_height="200dp"
-            android:src="@mipmap/logouwnobackground" />
+            android:src="@mipmap/css_compass_logo" />
 
         <EditText
             android:id="@+id/email_edit"
