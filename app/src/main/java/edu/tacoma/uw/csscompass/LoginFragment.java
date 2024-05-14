@@ -1,7 +1,5 @@
 package edu.tacoma.uw.csscompass;
 
-import static android.content.ContentValues.TAG;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -30,14 +28,14 @@ import edu.tacoma.uw.csscompass.databinding.FragmentLoginBinding;
 public class LoginFragment extends Fragment {
 
     private FragmentLoginBinding mBinding;
-    private UserViewModel mUserViewModel;
+    private LoginViewModel mLoginViewModel;
 
     private static final String TAG = "LoginFragment";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        mUserViewModel = new ViewModelProvider(getActivity()).get(UserViewModel.class);
+        mLoginViewModel = new ViewModelProvider(getActivity()).get(LoginViewModel.class);
         mBinding = FragmentLoginBinding.inflate(inflater, container, false);
         return mBinding.getRoot();
     }
@@ -45,7 +43,7 @@ public class LoginFragment extends Fragment {
     @Override
     public void onViewCreated (@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mUserViewModel.addResponseObserver(getViewLifecycleOwner(), response -> {
+        mLoginViewModel.addResponseObserver(getViewLifecycleOwner(), response -> {
             observeResponse(response);
 
         });
@@ -69,7 +67,7 @@ public class LoginFragment extends Fragment {
         String email = String.valueOf(mBinding.emailEdit.getText());
         String pwd = String.valueOf(mBinding.pwdEdit.getText());
         Log.i(TAG, email);
-        mUserViewModel.authenticateUser(email, pwd);
+        mLoginViewModel.authenticateUser(email, pwd);
     }
 
     private void observeResponse(final JSONObject response) {

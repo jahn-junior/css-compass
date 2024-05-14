@@ -26,14 +26,14 @@ public class RegisterFragment extends Fragment {
 
     private FragmentRegisterBinding mBinding;
 
-    private UserViewModel mUserViewModel;
+    private RegisterViewModel mRegisterViewModel;
 
     // Binding is assigned to the View Bindings (converts the xml into objects that we can interact with programmatically).
     @Override
     public View onCreateView (LayoutInflater inflater,
                               ViewGroup container,
                               Bundle savedInstanceState) {
-        mUserViewModel = new ViewModelProvider(getActivity()).get(UserViewModel.class);
+        mRegisterViewModel = new ViewModelProvider(getActivity()).get(RegisterViewModel.class);
 
         mBinding = FragmentRegisterBinding.inflate(inflater, container, false);
         return mBinding.getRoot();
@@ -43,7 +43,7 @@ public class RegisterFragment extends Fragment {
     @Override
     public void onViewCreated (@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mUserViewModel.addResponseObserver(getViewLifecycleOwner(), response -> {
+        mRegisterViewModel.addResponseObserver(getViewLifecycleOwner(), response -> {
             observeResponse(response);
         });
         //Use a Lamda expression to add the OnClickListener
@@ -62,7 +62,7 @@ public class RegisterFragment extends Fragment {
         String email = String.valueOf(mBinding.emailRegisterBox.getText());
         String pwd = String.valueOf(mBinding.pwdRegisterBox.getText());
         Log.i(TAG, email);
-        mUserViewModel.addUser(email,pwd);
+        mRegisterViewModel.addUser(email,pwd);
     }
 
     // Checks if we got a response, if the response we got is an error, and if there is

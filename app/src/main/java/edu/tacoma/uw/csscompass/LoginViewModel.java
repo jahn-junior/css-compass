@@ -21,12 +21,12 @@ import org.json.JSONObject;
 import java.nio.charset.Charset;
 import java.util.Objects;
 
-public class UserViewModel extends AndroidViewModel {
+public class LoginViewModel extends AndroidViewModel {
 
     private MutableLiveData<JSONObject> mResponse;
 
     // Sets the response JSON
-    public UserViewModel(@NonNull Application application) {
+    public LoginViewModel(@NonNull Application application) {
         super(application);
         mResponse = new MutableLiveData<>();
         mResponse.setValue(new JSONObject());
@@ -59,34 +59,6 @@ public class UserViewModel extends AndroidViewModel {
                 Log.e("JSON PARSE", "JSON Parse Error in handleError");
             }
         }
-    }
-
-    // Adds the user to the database
-    public void addUser(String email, String pwd) {
-        String url = "https://students.washington.edu/djruiz49/db_css_compass/register_user.php";
-        JSONObject body = new JSONObject();
-        try {
-            body.put("email", email);
-            body.put("password", pwd);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-        Request request = new JsonObjectRequest(
-                Request.Method.POST,
-                url,
-                body, //no body for this get request
-                mResponse::setValue,
-                this::handleError);
-
-        Log.i("UserViewModel", request.getUrl().toString());
-        request.setRetryPolicy(new DefaultRetryPolicy(
-                10_000,
-                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        //Instantiate the RequestQueue and add the request to the queue
-        Volley.newRequestQueue(getApplication().getApplicationContext())
-                .add(request);
     }
 
     // This autenticates the user using the passed email and password.
