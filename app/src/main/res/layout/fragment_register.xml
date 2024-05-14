@@ -5,7 +5,7 @@
     android:id="@+id/register"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegisterFragment">
+    tools:context=".authentication.RegisterFragment">
 
     <LinearLayout
         android:id="@+id/register_text_layout"
@@ -60,6 +60,14 @@
                 android:text="@string/register_text"
                 android:textAlignment="center" />
         </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textError"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@color/design_default_color_error" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,4 +1,4 @@
-package edu.tacoma.uw.csscompass;
+package edu.tacoma.uw.csscompass.authentication;
 
 import android.content.Context;
 import android.content.Intent;
@@ -20,6 +20,8 @@ import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import edu.tacoma.uw.csscompass.MainActivity;
+import edu.tacoma.uw.csscompass.R;
 import edu.tacoma.uw.csscompass.databinding.FragmentLoginBinding;
 
 /**
@@ -66,8 +68,17 @@ public class LoginFragment extends Fragment {
     public void login() {
         String email = String.valueOf(mBinding.emailEdit.getText());
         String pwd = String.valueOf(mBinding.pwdEdit.getText());
+        Account account;
+        try {
+            account = new Account(email, pwd);
+        } catch(IllegalArgumentException ie) {
+            Log.e(TAG, ie.getMessage());
+            Toast.makeText(getContext(), ie.getMessage(), Toast.LENGTH_LONG).show();
+            mBinding.errorLoginTextview.setText(ie.getMessage());
+            return;
+        }
         Log.i(TAG, email);
-        mLoginViewModel.authenticateUser(email, pwd);
+        mLoginViewModel.authenticateUser(account);
     }
 
     private void observeResponse(final JSONObject response) {
@@ -77,9 +88,11 @@ public class LoginFragment extends Fragment {
                     Toast.makeText(this.getContext(),
                             "Error Authenticating User: " +
                                     response.get("error"), Toast.LENGTH_LONG).show();
+                    mBinding.errorLoginTextview.setText("User failed to authenticate");
 
                 } catch (JSONException e) {
-                    Log.e("JSON Parse Error", e.getMessage());
+                    Log.e("JSON Parse Error", "JSON Parse Error " + e.getMessage());
+                    mBinding.errorLoginTextview.setText("User failed to authenticate");
                 }
 
             } else if (response.has("result")) {

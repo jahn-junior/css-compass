@@ -4,7 +4,7 @@
     android:id="@+id/login"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginFragment">
+    tools:context=".authentication.LoginFragment">
 
     <LinearLayout
         android:layout_width="0dp"
@@ -64,6 +64,14 @@
                 android:backgroundTint="@color/husky_purple"
                 android:text="@string/login_text" />
         </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/error_login_textview"
+            android:textColor="@color/design_default_color_error"
+            android:layout_gravity="center_horizontal" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

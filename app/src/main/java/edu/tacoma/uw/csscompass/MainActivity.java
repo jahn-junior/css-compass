@@ -3,15 +3,15 @@ package edu.tacoma.uw.csscompass;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import edu.tacoma.uw.csscompass.authentication.LoginActivity;
 
 public class MainActivity extends AppCompatActivity {
 
