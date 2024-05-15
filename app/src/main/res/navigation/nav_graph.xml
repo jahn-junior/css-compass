@@ -49,4 +49,19 @@
         android:name="edu.tacoma.uw.csscompass.StudySkillsFragment"
         android:label="fragment_study_skills"
         tools:layout="@layout/fragment_study_skills" />
+    <fragment
+        android:id="@+id/eventsFragment"
+        android:name="edu.tacoma.uw.csscompass.EventsFragment"
+        android:label="fragment_events"
+        tools:layout="@layout/fragment_events" />
+    <fragment
+        android:id="@+id/courseListFragment"
+        android:name="edu.tacoma.uw.csscompass.CourseListFragment"
+        android:label="fragment_course_list"
+        tools:layout="@layout/fragment_course_list" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="edu.tacoma.uw.csscompass.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
 </navigation>
