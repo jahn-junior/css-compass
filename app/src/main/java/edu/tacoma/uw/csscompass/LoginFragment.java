@@ -49,7 +49,7 @@ public class LoginFragment extends Fragment {
             observeResponse(response);
 
         });
-        //Use a Lamda expression to add the OnClickListener
+        //Use a Lambda expression to add the OnClickListener
         mBinding.loginButton.setOnClickListener(button -> login());
         mBinding.registerTextview.setOnClickListener(button -> navigateToRegister());
     }

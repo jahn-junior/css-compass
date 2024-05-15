@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SetProgramFragment">
+
+    <TextView
+        android:id="@+id/set_fragment_header"
+        android:background="@color/husky_purple"
+        android:textColor="@color/husky_gold"
+        android:layout_width="match_parent"
+        android:layout_height="62dp"
+        android:fontFamily="@font/hammersmith_one"
+        android:gravity="center"
+        android:text="@string/study_skills_header"
+        android:textSize="24sp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="644dp"
+        android:layout_margin="25dp"
+        android:translationY="62dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/workshop_header"
+                android:textColor="@color/husky_purple"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/hammersmith_one"
+                android:text="@string/workshop_text"
+                android:textAlignment="viewStart"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/workshop_body"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/hammersmith_one"
+                android:text="@string/workshop_body"
+                android:textAlignment="viewStart"
+                android:textSize="14sp" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp" />
+
+            <TextView
+                android:id="@+id/tlc_header"
+                android:textColor="@color/husky_purple"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/hammersmith_one"
+                android:text="@string/tlc_text"
+                android:textAlignment="viewStart"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tlc_body"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/hammersmith_one"
+                android:text="@string/tlc_body"
+                android:textAlignment="viewStart"
+                android:textSize="14sp" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp" />
+
+            <TextView
+                android:id="@+id/supported_subjects"
+                android:textColor="@color/husky_purple"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/hammersmith_one"
+                android:text="@string/supported_subjects"
+                android:textAlignment="viewStart"
+                android:textSize="18sp" />
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:stretchColumns="1">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <TextView
+                        android:id="@+id/subject"
+                        android:background="@color/husky_purple"
+                        android:textColor="@color/husky_gold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/hammersmith_one"
+                        android:text="@string/subject"
+                        android:textAlignment="viewStart"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/course_number"
+                        android:background="@color/husky_purple"
+                        android:textColor="@color/husky_gold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/hammersmith_one"
+                        android:text="@string/courseno"
+                        android:textAlignment="viewStart"
+                        android:textSize="14sp" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="293dp"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/tmath"
+                        android:layout_width="96dp"
+                        android:layout_height="68dp"
+                        android:background="@color/husky_purple"
+                        android:fontFamily="@font/hammersmith_one"
+                        android:text="@string/tmath"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/husky_gold"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tmath_courses"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/hammersmith_one"
+                        android:text="@string/tmath_courses"
+                        android:textAlignment="viewStart"
+                        android:textSize="14sp" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <TextView
+                        android:id="@+id/tcss"
+                        android:layout_width="103dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/husky_purple"
+                        android:fontFamily="@font/hammersmith_one"
+                        android:text="@string/tcss"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/husky_gold"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tcss_courses"
+                        android:layout_width="wrap_content"
+                        android:layout_height="63dp"
+                        android:fontFamily="@font/hammersmith_one"
+                        android:text="@string/tcss_courses"
+                        android:textAlignment="viewStart"
+                        android:textSize="14sp" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <TextView
+                        android:id="@+id/stats"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:background="@color/husky_purple"
+                        android:fontFamily="@font/hammersmith_one"
+                        android:text="@string/stats"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/husky_gold"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/stats_courses"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/hammersmith_one"
+                        android:text="@string/stats_courses"
+                        android:textAlignment="viewStart"
+                        android:textSize="14sp" />
+
+                </TableRow>
+            </TableLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp" />
+
+            <TextView
+                android:id="@+id/leetcode"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/hammersmith_one"
+                android:text="@string/leetcode_text"
+                android:textAlignment="viewStart"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/leetcode_body"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/hammersmith_one"
+                android:text="@string/leetcode_body"
+                android:textAlignment="viewStart"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</FrameLayout>
