@@ -20,7 +20,7 @@
             app:destination="@id/registerFragment" />
     </fragment>
     <fragment
-        android:id="@+id/homeFragment"
+        android:id="@+id/navigation_home"
         android:name="edu.tacoma.uw.csscompass.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
@@ -50,17 +50,17 @@
         android:label="fragment_study_skills"
         tools:layout="@layout/fragment_study_skills" />
     <fragment
-        android:id="@+id/eventsFragment"
+        android:id="@+id/navigation_events"
         android:name="edu.tacoma.uw.csscompass.EventsFragment"
         android:label="fragment_events"
         tools:layout="@layout/fragment_events" />
     <fragment
-        android:id="@+id/courseListFragment"
+        android:id="@+id/navigation_course_list"
         android:name="edu.tacoma.uw.csscompass.CourseListFragment"
         android:label="fragment_course_list"
         tools:layout="@layout/fragment_course_list" />
     <fragment
-        android:id="@+id/profileFragment"
+        android:id="@+id/navigation_profile"
         android:name="edu.tacoma.uw.csscompass.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
