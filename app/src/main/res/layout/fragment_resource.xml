@@ -42,7 +42,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:fontFamily="@font/hammersmith_one"
-                    android:text="@string/placeholder"
+                    android:text="@string/pantry_body"
                     android:textAlignment="viewStart"
                     android:textSize="14sp" />
 
@@ -65,7 +65,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:fontFamily="@font/hammersmith_one"
-                    android:text="@string/placeholder"
+                    android:text="@string/dubnet_body"
                     android:textAlignment="viewStart"
                     android:textSize="14sp" />
 
@@ -88,7 +88,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:fontFamily="@font/hammersmith_one"
-                    android:text="@string/placeholder"
+                    android:text="@string/parking_body"
                     android:textAlignment="viewStart"
                     android:textSize="14sp" />
 
