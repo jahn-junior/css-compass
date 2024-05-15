@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SetProgramFragment">
+
+    <TextView
+        android:id="@+id/set_fragment_header"
+        android:background="@color/husky_purple"
+        android:textColor="@color/husky_gold"
+        android:layout_width="match_parent"
+        android:layout_height="62dp"
+        android:fontFamily="@font/hammersmith_one"
+        android:gravity="center"
+        android:text="@string/set_header"
+        android:textSize="24sp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="644dp"
+        android:layout_margin="25dp"
+        android:translationY="62dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/about_set"
+                android:textColor="@color/husky_purple"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/hammersmith_one"
+                android:text="@string/about_set"
+                android:textAlignment="viewStart"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/about_set_body"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/hammersmith_one"
+                android:text="@string/set_program_body"
+                android:textAlignment="viewStart"
+                android:textSize="14sp" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp" />
+
+            <TextView
+                android:id="@+id/set_advisors"
+                android:textColor="@color/husky_purple"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/hammersmith_one"
+                android:text="@string/advisors_header"
+                android:textAlignment="viewStart"
+                android:textSize="20sp" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/noelle_card"
+                android:layout_width="match_parent"
+                android:layout_height="86dp"
+                android:layout_margin="2dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardElevation="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/noelle_img"
+                        android:layout_width="63dp"
+                        android:layout_height="88dp"
+                        android:layout_weight="0"
+                        android:src="@mipmap/noelle" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:orientation="vertical">
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="10dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:clickable="false"
+                            android:focusable="false"
+                            android:padding="4dp"
+                            android:text="@string/noelle"
+                            android:textAppearance="?attr/textAppearanceTitleMedium"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:clickable="false"
+                            android:focusable="false"
+                            android:padding="4dp"
+                            android:text="@string/prospective_students"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                    <Space
+                        android:layout_width="90dp"
+                        android:layout_height="match_parent" />
+
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/book_noelle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:layout_weight="0"
+                        android:clickable="true"
+                        android:src="@android:drawable/ic_menu_my_calendar" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/francis_card"
+                android:layout_width="match_parent"
+                android:layout_height="86dp"
+                android:layout_margin="2dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardElevation="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/francis_img"
+                        android:layout_width="63dp"
+                        android:layout_height="88dp"
+                        android:layout_weight="0"
+                        android:src="@mipmap/francis" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:orientation="vertical">
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="10dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:clickable="false"
+                            android:focusable="false"
+                            android:padding="4dp"
+                            android:text="@string/francis"
+                            android:textAppearance="?attr/textAppearanceTitleMedium"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:clickable="false"
+                            android:focusable="false"
+                            android:padding="4dp"
+                            android:text="@string/prospective_students"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                    <Space
+                        android:layout_width="51dp"
+                        android:layout_height="match_parent" />
+
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/book_francis"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:layout_weight="0"
+                        android:clickable="true"
+                        android:src="@android:drawable/ic_menu_my_calendar" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/brandy_card"
+                android:layout_width="match_parent"
+                android:layout_height="86dp"
+                android:layout_margin="2dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardElevation="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/brandy_img"
+                        android:layout_width="63dp"
+                        android:layout_height="88dp"
+                        android:layout_weight="0"
+                        android:src="@mipmap/brandy" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:orientation="vertical">
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="10dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:clickable="false"
+                            android:focusable="false"
+                            android:padding="4dp"
+                            android:text="@string/brandy"
+                            android:textAppearance="?attr/textAppearanceTitleMedium"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:clickable="false"
+                            android:focusable="false"
+                            android:padding="4dp"
+                            android:text="@string/premajor_students"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                    <Space
+                        android:layout_width="26dp"
+                        android:layout_height="match_parent" />
+
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/book_brandy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:layout_weight="0"
+                        android:clickable="true"
+                        android:src="@android:drawable/ic_menu_my_calendar" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/christian_card"
+                android:layout_width="match_parent"
+                android:layout_height="86dp"
+                android:layout_margin="2dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardElevation="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/christian_img"
+                        android:layout_width="63dp"
+                        android:layout_height="88dp"
+                        android:layout_weight="0"
+                        android:src="@mipmap/christian" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:orientation="vertical">
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="10dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:clickable="false"
+                            android:focusable="false"
+                            android:padding="4dp"
+                            android:text="@string/christian"
+                            android:textAppearance="?attr/textAppearanceTitleMedium"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:clickable="false"
+                            android:focusable="false"
+                            android:padding="4dp"
+                            android:text="@string/undergrad_students"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                    <Space
+                        android:layout_width="66dp"
+                        android:layout_height="match_parent" />
+
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/book_christian"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:layout_weight="0"
+                        android:clickable="true"
+                        android:src="@android:drawable/ic_menu_my_calendar" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/beth_card"
+                android:layout_width="match_parent"
+                android:layout_height="86dp"
+                android:layout_margin="2dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardElevation="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/beth_img"
+                        android:layout_width="63dp"
+                        android:layout_height="88dp"
+                        android:layout_weight="0"
+                        android:src="@mipmap/beth" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:orientation="vertical">
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="10dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:clickable="false"
+                            android:focusable="false"
+                            android:padding="4dp"
+                            android:text="@string/beth"
+                            android:textAppearance="?attr/textAppearanceTitleMedium"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:clickable="false"
+                            android:focusable="false"
+                            android:padding="4dp"
+                            android:text="@string/undergrad_students"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                    <Space
+                        android:layout_width="84dp"
+                        android:layout_height="match_parent" />
+
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/book_beth"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:layout_weight="0"
+                        android:clickable="true"
+                        android:src="@android:drawable/ic_menu_my_calendar" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>
