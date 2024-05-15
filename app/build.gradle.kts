@@ -34,6 +34,7 @@ android {
 
 dependencies {
     implementation("com.android.volley:volley:1.2.1")//Allow to use GET and POST for http requests
+    implementation("com.google.android.material:material:1.6.7")
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
