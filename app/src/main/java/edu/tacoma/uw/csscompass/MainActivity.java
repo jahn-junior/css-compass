@@ -11,6 +11,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
@@ -46,13 +47,13 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(navView, navController);
 
         // This will add the listener to the logout button, setting the activity as the loginActivity
-        findViewById(R.id.logout_button).setOnClickListener(v -> {
-                SharedPreferences sharedPreferences = getSharedPreferences(getString(R.string.LOGIN_PREFS), Context.MODE_PRIVATE);
-                sharedPreferences.edit().putBoolean(getString(R.string.LOGGEDIN), false).commit();
-
-                Intent i = new Intent(this, LoginActivity.class);
-                startActivity(i);
-                finish();
-        });
+//        findViewById(R.id.logout_button).setOnClickListener(v -> {
+//                SharedPreferences sharedPreferences = getSharedPreferences(getString(R.string.LOGIN_PREFS), Context.MODE_PRIVATE);
+//                sharedPreferences.edit().putBoolean(getString(R.string.LOGGEDIN), false).commit();
+//
+//                Intent i = new Intent(this, LoginActivity.class);
+//                startActivity(i);
+//                finish();
+//        });
     }
 }
