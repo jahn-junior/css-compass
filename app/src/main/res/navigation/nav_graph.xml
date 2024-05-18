@@ -19,4 +19,34 @@
             android:id="@+id/action_loginFragment_to_registerFragment"
             app:destination="@id/registerFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="edu.tacoma.uw.csscompass.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_resourceFragment"
+            app:destination="@id/resourceFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_setProgramFragment"
+            app:destination="@id/setProgramFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_studySkillsFragment"
+            app:destination="@id/studySkillsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resourceFragment"
+        android:name="edu.tacoma.uw.csscompass.ResourceFragment"
+        android:label="fragment_resource"
+        tools:layout="@layout/fragment_resource" />
+    <fragment
+        android:id="@+id/setProgramFragment"
+        android:name="edu.tacoma.uw.csscompass.SetProgramFragment"
+        android:label="fragment_set_program"
+        tools:layout="@layout/fragment_set_program" />
+    <fragment
+        android:id="@+id/studySkillsFragment"
+        android:name="edu.tacoma.uw.csscompass.StudySkillsFragment"
+        android:label="fragment_study_skills"
+        tools:layout="@layout/fragment_study_skills" />
 </navigation>

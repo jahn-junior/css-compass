@@ -48,7 +48,7 @@
         android:id="@+id/textView"
         android:layout_width="245dp"
         android:layout_height="47dp"
-        android:text="@string/resources_header"
+        android:text="@string/resources_text"
         android:textAlignment="center"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
