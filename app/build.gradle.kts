@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.androidApplication)
+    id("androidx.navigation.safeargs")
 }
 
 android {
@@ -33,7 +34,8 @@ android {
 }
 
 dependencies {
-    implementation("com.android.volley:volley:1.2.1")//Allow to use GET and POST for http requests
+//    implementation("rome:rome:1.0")                     // This allow us to use the ROME framework
+    implementation("com.android.volley:volley:1.2.1")   //Allow to use GET and POST for http requests
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
