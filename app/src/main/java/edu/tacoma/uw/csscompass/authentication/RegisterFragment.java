@@ -1,4 +1,4 @@
-package edu.tacoma.uw.csscompass;
+package edu.tacoma.uw.csscompass.authentication;
 
 import static android.content.ContentValues.TAG;
 
@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -26,14 +27,14 @@ public class RegisterFragment extends Fragment {
 
     private FragmentRegisterBinding mBinding;
 
-    private UserViewModel mUserViewModel;
+    private RegisterViewModel mRegisterViewModel;
 
     // Binding is assigned to the View Bindings (converts the xml into objects that we can interact with programmatically).
     @Override
     public View onCreateView (LayoutInflater inflater,
                               ViewGroup container,
                               Bundle savedInstanceState) {
-        mUserViewModel = new ViewModelProvider(getActivity()).get(UserViewModel.class);
+        mRegisterViewModel = new ViewModelProvider(getActivity()).get(RegisterViewModel.class);
 
         mBinding = FragmentRegisterBinding.inflate(inflater, container, false);
         return mBinding.getRoot();
@@ -43,7 +44,7 @@ public class RegisterFragment extends Fragment {
     @Override
     public void onViewCreated (@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mUserViewModel.addResponseObserver(getViewLifecycleOwner(), response -> {
+        mRegisterViewModel.addResponseObserver(getViewLifecycleOwner(), response -> {
             observeResponse(response);
         });
         //Use a Lamda expression to add the OnClickListener
@@ -61,8 +62,18 @@ public class RegisterFragment extends Fragment {
     public void register() {
         String email = String.valueOf(mBinding.emailRegisterBox.getText());
         String pwd = String.valueOf(mBinding.pwdRegisterBox.getText());
+        Account account;
+
+        try {
+            account = new Account(email, pwd);
+        } catch(IllegalArgumentException ie) {
+            Log.e(TAG, ie.getMessage());
+            Toast.makeText(getContext(), ie.getMessage(), Toast.LENGTH_LONG).show();
+            mBinding.textError.setText(ie.getMessage());
+            return;
+        }
         Log.i(TAG, email);
-        mUserViewModel.addUser(email,pwd);
+        mRegisterViewModel.addUser(account);
     }
 
     // Checks if we got a response, if the response we got is an error, and if there is
@@ -71,14 +82,18 @@ public class RegisterFragment extends Fragment {
         if (response.length() > 0) {
             if (response.has("error")) {
                 try {
-                    Toast.makeText(this.getContext(),
-                            "Error Adding User: " +
-                                    response.get("error"), Toast.LENGTH_LONG).show();
+                    String errorMess = "Error Adding User: " + response.get("error");
+                    Toast.makeText(this.getContext(), errorMess, Toast.LENGTH_LONG).show();
+                    mBinding.textError.setText(errorMess);
                 } catch (JSONException e) {
-                    Log.e("JSON Parse Error", e.getMessage());
+                    String errorMess = "Error Adding User: " + e.getMessage();
+                    Log.e("JSON Parse Error", errorMess);
+                    //Toast.makeText(this.getContext(), errorMess, Toast.LENGTH_LONG).show();
+                    mBinding.textError.setText(errorMess);
                 }
             } else {
                 Toast.makeText(this.getContext(),"User added", Toast.LENGTH_LONG).show();
+                Navigation.findNavController(getView()).popBackStack();
             }
         } else {
             Log.d("JSON Response", "No Response");

@@ -3,24 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/loginFragment">
+    app:startDestination="@id/navigation_home">
 
+<!--    android:name="edu.tacoma.uw.csscompass.RegisterFragment"-->
     <fragment
-        android:id="@+id/registerFragment"
-        android:name="edu.tacoma.uw.csscompass.RegisterFragment"
-        android:label="fragment_register"
-        tools:layout="@layout/fragment_register" />
-    <fragment
-        android:id="@+id/loginFragment"
-        android:name="edu.tacoma.uw.csscompass.LoginFragment"
-        android:label="fragment_login"
-        tools:layout="@layout/fragment_login" >
-        <action
-            android:id="@+id/action_loginFragment_to_registerFragment"
-            app:destination="@id/registerFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/homeFragment"
+        android:id="@+id/navigation_home"
         android:name="edu.tacoma.uw.csscompass.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
@@ -49,4 +36,19 @@
         android:name="edu.tacoma.uw.csscompass.StudySkillsFragment"
         android:label="fragment_study_skills"
         tools:layout="@layout/fragment_study_skills" />
+    <fragment
+        android:id="@+id/navigation_events"
+        android:name="edu.tacoma.uw.csscompass.EventsFragment"
+        android:label="fragment_events"
+        tools:layout="@layout/fragment_events" />
+    <fragment
+        android:id="@+id/navigation_course_list"
+        android:name="edu.tacoma.uw.csscompass.CourseListFragment"
+        android:label="fragment_course_list"
+        tools:layout="@layout/fragment_course_list" />
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="edu.tacoma.uw.csscompass.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
 </navigation>

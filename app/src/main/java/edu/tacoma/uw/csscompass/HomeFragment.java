@@ -19,6 +19,8 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        //for the separated theme
+        requireActivity().setTheme(R.style.Theme_CSSCompass);
         mBinding = FragmentHomeBinding.inflate(inflater, container, false);
         return mBinding.getRoot();
     }
