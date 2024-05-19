@@ -48,6 +48,9 @@ public class MainActivity extends AppCompatActivity {
         //NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
 
+        // removed title bar, can tweak later
+        getSupportActionBar().hide();
+
         //This will add the listener to the logout button, setting the activity as the loginActivity
         findViewById(R.id.logout_button).setOnClickListener(v -> {
                 SharedPreferences sharedPreferences = getSharedPreferences(getString(R.string.LOGIN_PREFS), Context.MODE_PRIVATE);

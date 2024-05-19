@@ -20,6 +20,7 @@
         Danie Oum: danieoum@uw.edu\n
         Derek Ruiz-Garcia: djruiz49@uw.edu
     </string>
+    <string name="learn_more">Learn More</string>
 
     <!-- Register fragment text -->
     <string name="email_hint">Enter your email</string>
@@ -70,6 +71,7 @@
         LeetCode is the best platform to help you enhance your skills with coding practice, expand
         your knowledge and prepare for technical interviews.
     </string>
+    <string name="start_practicing">Start Practicing</string>
     <string name="tlc_text">Teaching and Learning Center</string>
     <string name="tlc_body">
         The UW Tacoma Teaching and Learning Center (TLC) invites faculty, staff, and students from
@@ -99,6 +101,7 @@
         TSCOWF 351, 390; TURB 225;\n
         TPSYCH 309; TSOCW 535
     </string>
+    <string name="tlc_schedule">View Tutor Schedule</string>
 
     <!-- Student Resources Strings -->
     <string name="pantry_text">The Pantry</string>

@@ -29,10 +29,19 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mBinding.resourceCard.setOnClickListener(card -> navigateToResources());
+        mBinding.studySkillsCard.setOnClickListener(card -> navigateToStudySkills());
+        mBinding.setProgramCard.setOnClickListener(card -> navigateToSetProgram());
     }
 
     public void navigateToResources() {
         Navigation.findNavController(getView()).navigate(R.id.action_homeFragment_to_resourceFragment);
     }
 
+    public void navigateToStudySkills() {
+        Navigation.findNavController(getView()).navigate(R.id.action_homeFragment_to_studySkillsFragment);
+    }
+
+    public void navigateToSetProgram() {
+        Navigation.findNavController(getView()).navigate(R.id.action_homeFragment_to_setProgramFragment);
+    }
 }
