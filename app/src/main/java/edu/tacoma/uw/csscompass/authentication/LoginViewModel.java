@@ -1,3 +1,8 @@
+/*
+ * TCSS 450 - Mobile Application Development
+ * Programming Project Sprint 2
+ */
+
 package edu.tacoma.uw.csscompass.authentication;
 
 import android.app.Application;
@@ -21,10 +26,24 @@ import org.json.JSONObject;
 import java.nio.charset.Charset;
 import java.util.Objects;
 
+/**
+ * Description //FIXME
+ *
+ * @author JJ Coldiron
+ * @author Danie Oum
+ * @author Derek Ruiz-Garcia
+ * @version 1.0
+ */
 public class LoginViewModel extends AndroidViewModel {
 
+    /** Description //FIXME */
     private MutableLiveData<JSONObject> mResponse;
 
+    /**
+     * Description //FIXME
+     *
+     * @param application
+     */
     // Sets the response JSON
     public LoginViewModel(@NonNull Application application) {
         super(application);
@@ -33,11 +52,22 @@ public class LoginViewModel extends AndroidViewModel {
 
     }
 
+    /**
+     * Description //FIXME
+     *
+     * @param owner
+     * @param observer
+     */
     public void addResponseObserver(@NonNull LifecycleOwner owner,
                                     @NonNull Observer<? super JSONObject> observer) {
         mResponse.observe(owner, observer);
     }
 
+    /**
+     * Description //FIXME
+     *
+     * @param error
+     */
     private void handleError(final VolleyError error) {
         if (Objects.isNull(error.networkResponse)) {
             try {
@@ -61,6 +91,11 @@ public class LoginViewModel extends AndroidViewModel {
         }
     }
 
+    /**
+     * Description //FIXME
+     *
+     * @param account
+     */
     // This autenticates the user using the passed email and password.
     public void authenticateUser(Account account) {
         String url = "https://students.washington.edu/djruiz49/db_css_compass/login.php"; // The location of the php file in the database
