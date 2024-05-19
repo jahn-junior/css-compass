@@ -124,4 +124,10 @@
     <string name="dubnet_text">DUBNET</string>]
     <string name="parking_text">Parking Info</string>
 
+    <!-- Navigation menu text -->
+    <string name="title_home">Home</string>
+    <string name="title_events">Events</string>
+    <string name="title_course">Courses</string>
+    <string name="title_profile">Profile</string>
+
 </resources>
