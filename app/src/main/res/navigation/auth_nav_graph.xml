@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="edu.tacoma.uw.csscompass.LoginFragment"
+        android:name="edu.tacoma.uw.csscompass.authentication.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
-        android:name="edu.tacoma.uw.csscompass.RegisterFragment"
+        android:name="edu.tacoma.uw.csscompass.authentication.RegisterFragment"
         android:label="fragment_register"
         tools:layout="@layout/fragment_register" />
 </navigation>

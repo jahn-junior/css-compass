@@ -48,14 +48,14 @@ public class MainActivity extends AppCompatActivity {
         //NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
 
-        // This will add the listener to the logout button, setting the activity as the loginActivity
-//        findViewById(R.id.logout_button).setOnClickListener(v -> {
-//                SharedPreferences sharedPreferences = getSharedPreferences(getString(R.string.LOGIN_PREFS), Context.MODE_PRIVATE);
-//                sharedPreferences.edit().putBoolean(getString(R.string.LOGGEDIN), false).commit();
-//
-//                Intent i = new Intent(this, LoginActivity.class);
-//                startActivity(i);
-//                finish();
-//        });
+        //This will add the listener to the logout button, setting the activity as the loginActivity
+        findViewById(R.id.logout_button).setOnClickListener(v -> {
+                SharedPreferences sharedPreferences = getSharedPreferences(getString(R.string.LOGIN_PREFS), Context.MODE_PRIVATE);
+                sharedPreferences.edit().putBoolean(getString(R.string.LOGGEDIN), false).commit();
+
+                Intent i = new Intent(this, LoginActivity.class);
+                startActivity(i);
+                finish();
+        });
     }
 }
