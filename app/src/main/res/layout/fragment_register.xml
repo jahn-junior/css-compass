@@ -34,7 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:textColor="@color/husky_purple"
-            android:hint="@string/email_hint"
+            android:hint="@string/email"
             android:inputType="textWebEmailAddress" />
 
         <EditText
@@ -42,8 +42,70 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:textColor="@color/husky_purple"
-            android:hint="@string/pwd_hint"
+            android:hint="@string/pwd"
             android:inputType="textPassword" />
+
+        <EditText
+            android:id="@+id/student_num_register_box"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:textColor="@color/husky_purple"
+            android:hint="@string/student_num"
+            android:inputType="text" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/fname_register_box"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:hint="@string/first_name"
+                android:inputType="text"
+                android:textColor="@color/husky_purple" />
+
+            <Space
+                android:layout_width="24dp"
+                android:layout_height="match_parent" />
+
+            <EditText
+                android:id="@+id/lname_register_box"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:hint="@string/last_name"
+                android:inputType="text"
+                android:textColor="@color/husky_purple" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/enroll_year_register_box"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:hint="@string/enroll_year"
+                android:inputType="text"
+                android:textColor="@color/husky_purple" />
+
+            <Space
+                android:layout_width="24dp"
+                android:layout_height="match_parent" />
+
+            <EditText
+                android:id="@+id/grad_year_register_box"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:hint="@string/grad_year"
+                android:inputType="text"
+                android:textColor="@color/husky_purple" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
