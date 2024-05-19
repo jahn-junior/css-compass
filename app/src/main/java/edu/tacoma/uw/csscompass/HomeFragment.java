@@ -1,3 +1,8 @@
+/*
+ * TCSS 450 - Mobile Application Development
+ * Programming Project Sprint 2
+ */
+
 package edu.tacoma.uw.csscompass;
 
 import android.os.Bundle;
@@ -13,6 +18,14 @@ import android.view.ViewGroup;
 
 import edu.tacoma.uw.csscompass.databinding.FragmentHomeBinding;
 
+/**
+ * Description //FIXME
+ *
+ * @author JJ Coldiron
+ * @author Danie Oum
+ * @author Derek Ruiz-Garcia
+ * @version 1.0
+ */
 public class HomeFragment extends Fragment {
     private FragmentHomeBinding mBinding;
 
