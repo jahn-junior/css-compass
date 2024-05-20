@@ -1,5 +1,7 @@
-package edu.tacoma.uw.csscompass;
+package edu.tacoma.uw.csscompass.event;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -10,7 +12,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.Objects;
+
+import edu.tacoma.uw.csscompass.R;
 import edu.tacoma.uw.csscompass.databinding.FragmentEventDetailBinding;
+import edu.tacoma.uw.csscompass.event.Event;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -33,8 +39,19 @@ public class EventDetailFragment extends Fragment {
         EventDetailFragmentArgs args = EventDetailFragmentArgs.fromBundle(getArguments());
         Event event = (Event) args.getEvent();
         mBinding.tittleTextView.setText(event.getTitle());
-        mBinding.dateTextView.setText(event.getDate());
+        String time = "";
+        if(!(event.getTime().isEmpty())){
+            time = ", " + event.getTime();
+        }
+        String dateAndTime = event.getDate() + time;
+        mBinding.dateTextView.setText(dateAndTime);
         mBinding.descriptionTextView.setText(event.getDescription());
+//        this.findViewById(R.id.learn_more_button)
+        mBinding.learnMoreButton.setOnClickListener(v -> {
+            Uri webpage = Uri.parse(event.getLink());
+            Intent webIntent = new Intent(Intent.ACTION_VIEW, webpage);
+            startActivity(webIntent);
+        });
     }
 
 }

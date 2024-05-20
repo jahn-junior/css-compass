@@ -1,8 +1,5 @@
-package edu.tacoma.uw.csscompass;
+package edu.tacoma.uw.csscompass.event;
 
-import static android.content.ContentValues.TAG;
-
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+import edu.tacoma.uw.csscompass.R;
 import edu.tacoma.uw.csscompass.databinding.FragmentEventBinding;
 
 public class EventRecyclerViewAdapter  extends
@@ -53,24 +51,19 @@ public class EventRecyclerViewAdapter  extends
             binding = FragmentEventBinding.bind(view);
         }
 
-//        public void setItem(final Event item) {
-//            mItem = item;
-////            Log.v(TAG, "ready to start binding the info to the items.");
-//            binding.eventDate.setText(item.getTime());
-////            Log.v(TAG, "done binding the date");
-//            binding.eventTitle.setText(item.getTitle());
-////            Log.v(TAG, "done binding the title");
-//        }
         public void setItem(final Event item) {
             mItem = item;
-            binding.eventTime.setText(mItem.getTime());
+            binding.eventDate.setText(mItem.getDate());
             binding.eventTitle.setText(mItem.getTitle());
-            binding.eventTitle.setOnClickListener(view -> {
-                EventListFragmentDirections.ActionEventListFragmentToEventDetailFragment directions =
-                        EventListFragmentDirections.actionEventListFragmentToEventDetailFragment(item);
+            if(!(mItem.getTitle().equals("Event"))){
+                binding.eventTitle.setOnClickListener(view -> {
+                    EventListFragmentDirections.ActionNavigationEventsToEventDetailFragment directions =
+                            EventListFragmentDirections.actionNavigationEventsToEventDetailFragment(item);
 
-                Navigation.findNavController(mView).navigate(directions);
-            });
+                    Navigation.findNavController(mView).navigate(directions);
+                });
+            }
+
 
         }
 

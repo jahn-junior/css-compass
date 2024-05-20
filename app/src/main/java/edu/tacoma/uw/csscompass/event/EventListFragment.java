@@ -1,4 +1,4 @@
-package edu.tacoma.uw.csscompass;
+package edu.tacoma.uw.csscompass.event;
 
 import android.os.Bundle;
 
@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import edu.tacoma.uw.csscompass.R;
 import edu.tacoma.uw.csscompass.databinding.FragmentEventListBinding;
 
 /**

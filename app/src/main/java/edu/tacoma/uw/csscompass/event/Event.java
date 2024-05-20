@@ -1,4 +1,4 @@
-package edu.tacoma.uw.csscompass;
+package edu.tacoma.uw.csscompass.event;
 
 import java.io.Serializable;
 
@@ -30,11 +30,12 @@ public class Event implements Serializable {
 
     public final static String DESCRIPTION = "description";
 
-    public Event(String mTitle, String mTime, String mDate, String mDescription) {
+    public Event(String mTitle, String mTime, String mDate, String mDescription, String mlink) {
         this.mTitle = mTitle;
         this.mTime = mTime;
         this.mDate = mDate;
         this.mDescription = mDescription;
+        this.mLink = mlink;
     }
 
     public String getTitle() {
@@ -67,5 +68,13 @@ public class Event implements Serializable {
 
     public void setDescription(String mDescription) {
         this.mDescription = mDescription;
+    }
+
+    public String getLink() {
+        return mLink;
+    }
+
+    public void setLink(String mLink) {
+        this.mLink = mLink;
     }
 }
