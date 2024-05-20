@@ -18,7 +18,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="644dp"
+        android:layout_height="592dp"
         android:layout_margin="25dp"
         android:translationY="62dp">
 
@@ -29,12 +29,12 @@
 
             <TextView
                 android:id="@+id/workshop_header"
-                android:textColor="@color/husky_purple"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/hammersmith_one"
                 android:text="@string/workshop_text"
                 android:textAlignment="viewStart"
+                android:textColor="@color/husky_purple"
                 android:textSize="20sp" />
 
             <TextView
@@ -52,12 +52,12 @@
 
             <TextView
                 android:id="@+id/tlc_header"
-                android:textColor="@color/husky_purple"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/hammersmith_one"
                 android:text="@string/tlc_text"
                 android:textAlignment="viewStart"
+                android:textColor="@color/husky_purple"
                 android:textSize="20sp" />
 
             <TextView
@@ -75,12 +75,12 @@
 
             <TextView
                 android:id="@+id/supported_subjects"
-                android:textColor="@color/husky_purple"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/hammersmith_one"
                 android:text="@string/supported_subjects"
                 android:textAlignment="viewStart"
+                android:textColor="@color/husky_purple"
                 android:textSize="18sp" />
 
             <TableLayout
@@ -90,28 +90,28 @@
 
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
+                    android:layout_height="match_parent">
 
                     <TextView
                         android:id="@+id/subject"
-                        android:background="@color/husky_purple"
-                        android:textColor="@color/husky_gold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:background="@color/husky_purple"
                         android:fontFamily="@font/hammersmith_one"
                         android:text="@string/subject"
                         android:textAlignment="viewStart"
+                        android:textColor="@color/husky_gold"
                         android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/course_number"
-                        android:background="@color/husky_purple"
-                        android:textColor="@color/husky_gold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:background="@color/husky_purple"
                         android:fontFamily="@font/hammersmith_one"
                         android:text="@string/courseno"
                         android:textAlignment="viewStart"
+                        android:textColor="@color/husky_gold"
                         android:textSize="14sp" />
 
                 </TableRow>
@@ -144,7 +144,7 @@
 
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
+                    android:layout_height="match_parent">
 
                     <TextView
                         android:id="@+id/tcss"
@@ -170,7 +170,7 @@
 
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
+                    android:layout_height="match_parent">
 
                     <TextView
                         android:id="@+id/stats"
@@ -200,6 +200,19 @@
                 android:layout_height="16dp" />
 
             <TextView
+                android:id="@+id/tlc_link"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/tlc_schedule"
+                android:textAlignment="center"
+                android:textColor="@color/husky_purple"
+                android:textStyle="bold" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp" />
+
+            <TextView
                 android:id="@+id/leetcode"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -216,6 +229,23 @@
                 android:text="@string/leetcode_body"
                 android:textAlignment="viewStart"
                 android:textSize="14sp" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp" />
+
+            <TextView
+                android:id="@+id/leetcode_link"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/start_practicing"
+                android:textAlignment="center"
+                android:textColor="@color/husky_purple"
+                android:textStyle="bold" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="64dp" />
 
         </LinearLayout>
 

@@ -1,3 +1,8 @@
+/*
+ * TCSS 450 - Mobile Application Development
+ * Programming Project Sprint 2
+ */
+
 package edu.tacoma.uw.csscompass.authentication;
 
 import android.content.Context;
@@ -14,11 +19,27 @@ import androidx.core.view.WindowInsetsCompat;
 import edu.tacoma.uw.csscompass.MainActivity;
 import edu.tacoma.uw.csscompass.R;
 
+/**
+ * Description //FIXME
+ *
+ * @author JJ Coldiron
+ * @author Danie Oum
+ * @author Derek Ruiz-Garcia
+ * @version 1.0
+ */
 public class LoginActivity extends AppCompatActivity {
 
-    //The preferences we have saved in the other fragments
+    /** The preferences saved from other fragments. */
     private SharedPreferences mSharedPreferences;
 
+    /**
+     * Description //FIXME
+     *
+     * @param savedInstanceState If the activity is being re-initialized after
+     *     previously being shut down then this Bundle contains the data it most
+     *     recently supplied in {@link #onSaveInstanceState}.
+     *     <b><i>Note: Otherwise it is null.</i></b>
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

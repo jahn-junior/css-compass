@@ -1,3 +1,8 @@
+/*
+ * TCSS 450 - Mobile Application Development
+ * Programming Project Sprint 2
+ */
+
 package edu.tacoma.uw.csscompass.authentication;
 
 import android.content.Context;
@@ -25,15 +30,37 @@ import edu.tacoma.uw.csscompass.R;
 import edu.tacoma.uw.csscompass.databinding.FragmentLoginBinding;
 
 /**
- * A simple {@link Fragment} subclass.
+ * Description //FIXME
+ *
+ * @author JJ Coldiron
+ * @author Danie Oum
+ * @author Derek Ruiz-Garcia
+ * @version 1.0
  */
 public class LoginFragment extends Fragment {
 
+    /** Description //FIXME */
     private FragmentLoginBinding mBinding;
+
+    /** Description //FIXME */
     private LoginViewModel mLoginViewModel;
 
+    /** Description //FIXME */
     private static final String TAG = "LoginFragment";
 
+    /**
+     * Description //FIXME
+     *
+     * @param inflater The LayoutInflater object that can be used to inflate
+     * any views in the fragment,
+     * @param container If non-null, this is the parent view that the fragment's
+     * UI should be attached to.  The fragment should not add the view itself,
+     * but this can be used to generate the LayoutParams of the view.
+     * @param savedInstanceState If non-null, this fragment is being re-constructed
+     * from a previous saved state as given here.
+     *
+     * @return
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -42,6 +69,13 @@ public class LoginFragment extends Fragment {
         return mBinding.getRoot();
     }
 
+    /**
+     * Description //FIXME
+     *
+     * @param view The View returned by {@link #onCreateView(LayoutInflater, ViewGroup, Bundle)}.
+     * @param savedInstanceState If non-null, this fragment is being re-constructed
+     * from a previous saved state as given here.
+     */
     @Override
     public void onViewCreated (@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -54,17 +88,26 @@ public class LoginFragment extends Fragment {
         mBinding.registerTextview.setOnClickListener(button -> navigateToRegister());
     }
 
+    /**
+     * Description //FIXME
+     */
     public void navigateToRegister() {
         Navigation.findNavController(getView())
                 .navigate(R.id.action_loginFragment_to_registerFragment);
     }
 
+    /**
+     * Description //FIXME
+     */
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         mBinding = null;
     }
 
+    /**
+     * Description //FIXME
+     */
     public void login() {
         String email = String.valueOf(mBinding.emailEdit.getText());
         String pwd = String.valueOf(mBinding.pwdEdit.getText());
@@ -81,6 +124,11 @@ public class LoginFragment extends Fragment {
         mLoginViewModel.authenticateUser(account);
     }
 
+    /**
+     * Description //FIXME
+     *
+     * @param response
+     */
     private void observeResponse(final JSONObject response) {
         if (response.length() > 0) {
             if (response.has("error")) {
