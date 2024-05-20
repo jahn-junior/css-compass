@@ -20,9 +20,6 @@
         <action
             android:id="@+id/action_homeFragment_to_studySkillsFragment"
             app:destination="@id/studySkillsFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_aboutFragment"
-            app:destination="@id/aboutFragment" />
     </fragment>
     <fragment
         android:id="@+id/resourceFragment"
@@ -40,11 +37,6 @@
         android:label="fragment_study_skills"
         tools:layout="@layout/fragment_study_skills" />
     <fragment
-        android:id="@+id/navigation_events"
-        android:name="edu.tacoma.uw.csscompass.EventsFragment"
-        android:label="fragment_events"
-        tools:layout="@layout/fragment_events" />
-    <fragment
         android:id="@+id/navigation_course_list"
         android:name="edu.tacoma.uw.csscompass.CourseListFragment"
         android:label="fragment_course_list"
@@ -55,8 +47,21 @@
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
     <fragment
-        android:id="@+id/aboutFragment"
-        android:name="edu.tacoma.uw.csscompass.AboutFragment"
-        android:label="fragment_about"
-        tools:layout="@layout/fragment_about" />
+        android:id="@+id/navigation_events"
+        android:name="edu.tacoma.uw.csscompass.event.EventListFragment"
+        android:label="fragment_event_list"
+        tools:layout="@layout/fragment_event_list" >
+        <action
+            android:id="@+id/action_navigation_events_to_eventDetailFragment"
+            app:destination="@id/eventDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/eventDetailFragment"
+        android:name="edu.tacoma.uw.csscompass.event.EventDetailFragment"
+        android:label="fragment_event_detail"
+        tools:layout="@layout/fragment_event_detail" >
+        <argument
+            android:name="event"
+            app:argType="edu.tacoma.uw.csscompass.event.Event" />
+    </fragment>
 </navigation>
