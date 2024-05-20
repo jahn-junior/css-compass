@@ -46,8 +46,7 @@ public class EventDetailFragment extends Fragment {
         String dateAndTime = event.getDate() + time;
         mBinding.dateTextView.setText(dateAndTime);
         mBinding.descriptionTextView.setText(event.getDescription());
-//        this.findViewById(R.id.learn_more_button)
-        mBinding.learnMoreButton.setOnClickListener(v -> {
+        mBinding.eventLink.setOnClickListener(v -> {
             Uri webpage = Uri.parse(event.getLink());
             Intent webIntent = new Intent(Intent.ACTION_VIEW, webpage);
             startActivity(webIntent);
