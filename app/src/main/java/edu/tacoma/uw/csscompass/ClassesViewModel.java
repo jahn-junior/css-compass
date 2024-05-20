@@ -66,34 +66,6 @@ public class ClassesViewModel extends AndroidViewModel {
         }
     }
 
-//    public void addAnimal(String id, String kind, String name) {
-//        String url = "https://students.washington.edu/danieoum/add_animal.php";
-//        JSONObject body = new JSONObject();
-//        try {
-//            body.put("id", id);
-//            body.put("kind", kind);
-//            body.put("name", name);
-//        } catch (JSONException e) {
-//            e.printStackTrace();
-//        }
-//
-//        Request request = new JsonObjectRequest(
-//                Request.Method.POST,
-//                url,
-//                body, //no body for this get request
-//                mResponse::setValue,
-//                this::handleError);
-//
-//        Log.i("AnimalViewModel", request.getUrl().toString());
-//        request.setRetryPolicy(new DefaultRetryPolicy(
-//                10_000,
-//                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-//                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-//        //Instantiate the RequestQueue and add the request to the queue
-//        Volley.newRequestQueue(getApplication().getApplicationContext())
-//                .add(request);
-//    }
-
     public void addAnimalListObserver(@NonNull LifecycleOwner owner,
                                       @NonNull Observer<? super List<Classes>> observer) {
         mClassesList.observe(owner, observer);
