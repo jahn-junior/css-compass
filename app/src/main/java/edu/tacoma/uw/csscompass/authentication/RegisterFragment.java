@@ -1,3 +1,8 @@
+/*
+ * TCSS 450 - Mobile Application Development
+ * Programming Project Sprint 2
+ */
+
 package edu.tacoma.uw.csscompass.authentication;
 
 import static android.content.ContentValues.TAG;
@@ -21,14 +26,34 @@ import org.json.JSONObject;
 import edu.tacoma.uw.csscompass.databinding.FragmentRegisterBinding;
 
 /**
- * A simple {@link Fragment} subclass.
+ * Description //FIXME
+ *
+ * @author JJ Coldiron
+ * @author Danie Oum
+ * @author Derek Ruiz-Garcia
+ * @version 1.0
  */
 public class RegisterFragment extends Fragment {
 
+    /** Description //FIXME */
     private FragmentRegisterBinding mBinding;
 
+    /** Description //FIXME */
     private RegisterViewModel mRegisterViewModel;
 
+    /**
+     * Description //FIXME
+     *
+     * @param inflater The LayoutInflater object that can be used to inflate
+     * any views in the fragment,
+     * @param container If non-null, this is the parent view that the fragment's
+     * UI should be attached to.  The fragment should not add the view itself,
+     * but this can be used to generate the LayoutParams of the view.
+     * @param savedInstanceState If non-null, this fragment is being re-constructed
+     * from a previous saved state as given here.
+     *
+     * @return
+     */
     // Binding is assigned to the View Bindings (converts the xml into objects that we can interact with programmatically).
     @Override
     public View onCreateView (LayoutInflater inflater,
@@ -40,6 +65,13 @@ public class RegisterFragment extends Fragment {
         return mBinding.getRoot();
     }
 
+    /**
+     * Description //FIXME
+     *
+     * @param view The View returned by {@link #onCreateView(LayoutInflater, ViewGroup, Bundle)}.
+     * @param savedInstanceState If non-null, this fragment is being re-constructed
+     * from a previous saved state as given here.
+     */
     // We add a listener to the register button once the view is created
     @Override
     public void onViewCreated (@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -51,6 +83,9 @@ public class RegisterFragment extends Fragment {
         mBinding.registerButton.setOnClickListener(button -> register());
     }
 
+    /**
+     * Description //FIXME
+     */
     // Remove the reference to binding when the Fragment View is destroyed
     @Override
     public void onDestroyView() {
@@ -58,6 +93,9 @@ public class RegisterFragment extends Fragment {
         mBinding = null;
     }
 
+    /**
+     * Description //FIXME
+     */
     // This will obtain the values from emailRegisterBox and pwdRegisterBox and will add the user.
     public void register() {
         String email = String.valueOf(mBinding.emailRegisterBox.getText());
@@ -76,6 +114,11 @@ public class RegisterFragment extends Fragment {
         mRegisterViewModel.addUser(account);
     }
 
+    /**
+     * Description //FIXME
+     *
+     * @param response
+     */
     // Checks if we got a response, if the response we got is an error, and if there is
     // response and no error then the user is added to the database.
     private void observeResponse(final JSONObject response) {

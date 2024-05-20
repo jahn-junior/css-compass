@@ -1,49 +1,40 @@
 <resources>
     <string name="app_name">CSS Compass</string>
     <string name="app_logo">University of Washington Tacoma CSS Program Logo</string>
-
     <string name="set_text">SET Program</string>
     <string name="study_text">Study Skills</string>
     <string name="resources_text">Student Resources</string>
     <string name="resources_img_descriptor">UW Campus Building</string>
     <string name="about_text">About</string>
     <string name="placeholder">Placeholder</string>
-
     <string name="about_info">
         CSS Compass was designed with the intention of helping both incoming and current CSS
         students reach their goals. The development team sought to compile useful resources that
         they felt aided their own journey, so that new students would have a launchpad for becoming
         successful students/programmers.
     </string>
-
     <string name="about_header">Our Mission</string>
-
     <string name="contact_info">
         Contact Us:\n
         JJ Coldiron: ecoldi@uw.edu\n
         Danie Oum: danieoum@uw.edu\n
         Derek Ruiz-Garcia: djruiz49@uw.edu
     </string>
+    <string name="learn_more">Learn More</string>
 
-    <!-- Register fragment text -->
-    <string name="email_hint">Enter your email</string>
-    <string name="pwd_hint">Enter your password</string>
+    <string name="pwd">Password</string>
     <string name="register_text">REGISTER</string>
 
     <!-- Login fragment text -->
     <string name="login_text">LOGIN</string>
     <string name="register_navigate_text">Click here to Register!</string>
-
-    <!-- Login fragment text $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$4 change the autentication practice!!! edu.tacoma.uw.mmuppa.authenticationpractice.PREFS-->
     <string name="LOGIN_PREFS">edu.tacoma.uw.djruiz49.authenticationpractice.PREFS</string>
     <string name="LOGGEDIN">loggedin</string>
-
     <string name="action_logout">Logout</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="set_header">SET Program Resources</string>
 
+    <!-- SET Resources Strings -->
+    <string name="set_header">SET Program Resources</string>
     <string name="set_program_body">
         The School of Engineering and Technology (SET) at the University of Washington Tacoma
         prepares our students to become future leaders in a variety of computer, electrical,
@@ -51,7 +42,6 @@
         develop real world solutions in embedded systems, information technology, information
         systems, and computer software design, development and maintenance.
     </string>
-
     <string name="about_set">About SET</string>
     <string name="advisors_header">SET Advisors</string>
     <string name="prospective_students">Prospective Students</string>
@@ -63,9 +53,10 @@
     <string name="premajor_students">Pre-Major / SET Direct Students</string>
     <string name="undergrad_students">Undergraduate Students</string>
 
+
+    <!-- Study Skills Strings -->
     <string name="study_skills_header">Study Skills</string>
     <string name="workshop_text">Supplemental 390 Workshops</string>
-
     <string name="workshop_body">
         Need help with classes in your major? Consider taking a TXXX390 course. These are
         workshop-style courses that can help you succeed in some of the toughest courses for each of
@@ -73,56 +64,76 @@
         These workshops offer the opportunity to practice and discuss problems related to specific
         courses in the core curriculum, and are overseen by a faculty member and a student mentor.
     </string>
-
     <string name="leetcode_text">LeetCode</string>
-
     <string name="leetcode_body">
         LeetCode is the best platform to help you enhance your skills with coding practice, expand
         your knowledge and prepare for technical interviews.
     </string>
-
+    <string name="start_practicing">Start Practicing</string>
     <string name="tlc_text">Teaching and Learning Center</string>
-
     <string name="tlc_body">
         The UW Tacoma Teaching and Learning Center (TLC) invites faculty, staff, and students from
         all backgrounds to join with us in creating a culture of learning. Consultants work
         collaboratively with students in writing, math, science and statistics, helping them to
         develop the skills, strategies, knowledge, and confidence necessary for academic success.
     </string>
-
     <string name="supported_subjects">Supported Subjects</string>
-
     <string name="subject">Subject</string>
     <string name="courseno">Course Number</string>
     <string name="tmath">Mathematics</string>
-
     <string name="tmath_courses">
         TMATH 098, 110, 115, 116, 120, 124, 125, \n
         126, 207, 208, 300, 307, 308, 324, \n
         342, 343, 390, 402, 403, 424, 425; \n
         TURB 225
     </string>
-
     <string name="tcss">Computer Science</string>
-
     <string name="tcss_courses">
         TCCS 101, 141, 142, 143, 305, 321, 342, \n
         343, 360, 371, 372, 380, 445; \n
         TME 221, 222, 223; TCES 215
     </string>
-
     <string name="stats">Statistics</string>
-
     <string name="stats_courses">
         TMATH 110, 210, 390, 410; \n
         TSCOWF 351, 390; TURB 225;\n
         TPSYCH 309; TSOCW 535
     </string>
+    <string name="tlc_schedule">View Tutor Schedule</string>
 
+    <!-- Student Resources Strings -->
     <string name="pantry_text">The Pantry</string>
-    <string name="study_space_text">Campus Study Spaces</string>
-    <string name="dubnet_text">DUBNET</string>]
+    <string name="pantry_body">
+        The Pantry exists to provide free supplemental, nutritious, and culturally relevant food
+        as well as hygiene items to any UW Tacoma student. The CEI partners with Nourish Pierce
+        County and several other organizations on campus to provide this service and create
+        continued support.
+    </string>
+    <string name="dubnet_text">DUBNET</string>
+    <string name="dubnet_body">
+        DUBNET is UW Tacoma\'s online home for registered student organizations (RSOs). It is a student
+        engagement platform that helps to keep RSO officers, members, and the general UW Tacoma
+        community connected. Joining an RSO on DUBNET is one of the biggest steps that any student
+        can take to get involved on campus.
+    </string>
     <string name="parking_text">Parking Info</string>
+    <string name="parking_body">
+        UW Tacoma is an urban campus and parking can be a challenge at times. There are a number of
+        paid parking options on and around campus, as well as some free parking options a short walk
+        or light rail ride away.
+    </string>
+
+    <!-- Profile Strings -->
+    <string name="user_profile">User Profile</string>
+    <string name="last_name">Last Name</string>
+    <string name="first_name">First Name</string>
+    <string name="email">E-Mail Address</string>
+    <string name="dob">Date of Birth</string>
+    <string name="student_details">Student Details</string>
+    <string name="student_num">Student No.</string>
+    <string name="enroll_year">Enrollment Year</string>
+    <string name="grad_year">Graduation Year</string>
+    <string name="logout">Logout</string>
 
     <!-- Navigation menu text -->
     <string name="title_home">Home</string>
