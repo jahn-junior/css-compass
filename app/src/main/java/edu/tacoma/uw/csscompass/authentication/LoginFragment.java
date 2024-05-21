@@ -30,7 +30,7 @@ import edu.tacoma.uw.csscompass.R;
 import edu.tacoma.uw.csscompass.databinding.FragmentLoginBinding;
 
 /**
- * Description //FIXME
+ * The login fragment used to log in a user into the app.
  *
  * @author JJ Coldiron
  * @author Danie Oum
@@ -39,17 +39,18 @@ import edu.tacoma.uw.csscompass.databinding.FragmentLoginBinding;
  */
 public class LoginFragment extends Fragment {
 
-    /** Description //FIXME */
+    /** The binding used to bind the login fragment */
     private FragmentLoginBinding mBinding;
 
-    /** Description //FIXME */
+    /** The view model used for the login */
     private LoginViewModel mLoginViewModel;
 
-    /** Description //FIXME */
+    /** The login fragment tag for debugging */
     private static final String TAG = "LoginFragment";
 
     /**
-     * Description //FIXME
+     * Initializes the view model for login in, then assigns the binding to the inflated
+     * fragment using the passed inflater and container, and then returns the inflated view.
      *
      * @param inflater The LayoutInflater object that can be used to inflate
      * any views in the fragment,
@@ -70,7 +71,8 @@ public class LoginFragment extends Fragment {
     }
 
     /**
-     * Description //FIXME
+     * Adds an observer to the login view model, and binds the login button and register text view
+     * to on click listeners to login and go to register fragment respectively.
      *
      * @param view The View returned by {@link #onCreateView(LayoutInflater, ViewGroup, Bundle)}.
      * @param savedInstanceState If non-null, this fragment is being re-constructed
@@ -89,7 +91,8 @@ public class LoginFragment extends Fragment {
     }
 
     /**
-     * Description //FIXME
+     * This allows us to navigate from the login fragment to the register fragment using
+     * the current view as a nav controller.
      */
     public void navigateToRegister() {
         Navigation.findNavController(getView())
@@ -97,7 +100,7 @@ public class LoginFragment extends Fragment {
     }
 
     /**
-     * Description //FIXME
+     * Destroys the binding view, by setting it to null.
      */
     @Override
     public void onDestroyView() {
@@ -106,14 +109,16 @@ public class LoginFragment extends Fragment {
     }
 
     /**
-     * Description //FIXME
+     * This logs the user into the app, verifying if the passed values are valid, and then
+     * checking if the account exists in the database.
      */
     public void login() {
         String email = String.valueOf(mBinding.emailEdit.getText());
         String pwd = String.valueOf(mBinding.pwdEdit.getText());
         Account account;
         try {
-            account = new Account(email, pwd);
+            account = new Account(email, pwd, "noName", "noName",
+                    "0", "0", "0");
         } catch(IllegalArgumentException ie) {
             Log.e(TAG, ie.getMessage());
             Toast.makeText(getContext(), ie.getMessage(), Toast.LENGTH_LONG).show();
@@ -125,9 +130,10 @@ public class LoginFragment extends Fragment {
     }
 
     /**
-     * Description //FIXME
+     * This reacts to the response obtained from trying to login a user into the app.
      *
-     * @param response
+     * @param response the response obtained from trying to log in the user into the
+     *                 app as a JSONObject.
      */
     private void observeResponse(final JSONObject response) {
         if (response.length() > 0) {
@@ -154,7 +160,23 @@ public class LoginFragment extends Fragment {
                         sharedPreferences.edit().putBoolean(getString(R.string.LOGGEDIN), true)
                                 .commit();
                         //Go to the mainActivity after logging in.
+                        Log.v("LOGGED IN", response.toString());
                         Intent intent = new Intent(getContext(), MainActivity.class); //Create an intent to go to the mainActivity
+
+                        //Save the user data in shared preferences.
+                        sharedPreferences.edit().putString("email", (String) response.get("email"))
+                                .commit();
+                        sharedPreferences.edit().putString("first_name", (String) response.get("first_name"))
+                                .commit();
+                        sharedPreferences.edit().putString("last_name", (String) response.get("last_name"))
+                                .commit();
+                        sharedPreferences.edit().putString("student_number", (String) response.get("student_number"))
+                                .commit();
+                        sharedPreferences.edit().putString("enrollment_year", (String) response.get("enrollment_year"))
+                                .commit();
+                        sharedPreferences.edit().putString("graduation_year", (String) response.get("graduation_year"))
+                                .commit();
+
                         startActivity(intent);                                        //Start the activity
                         requireActivity().finish();                                   //Remove the old activity linked to this fragment
                     } else {

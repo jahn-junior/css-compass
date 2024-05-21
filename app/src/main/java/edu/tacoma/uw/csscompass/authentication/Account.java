@@ -8,7 +8,7 @@ package edu.tacoma.uw.csscompass.authentication;
 import java.util.regex.Pattern;
 
 /**
- * Description //FIXME
+ * An account class used to store the user information
  *
  * @author JJ Coldiron
  * @author Danie Oum
@@ -17,45 +17,95 @@ import java.util.regex.Pattern;
  */
 public class Account {
 
-    /** Description //FIXME */
+    /** The email of this account. */
     private String mEmail;
 
-    /** Description //FIXME */
+    /** The password of this account. */
     private String mPassword;
 
-    /** Description //FIXME */
+    /** The first name of the account user. */
+    private String mFirstName;
+
+    /** The last name of the account user. */
+    private String mLastName;
+
+    /** The student number of the account user. */
+    private String mStudentNumber;
+
+    /** The enrollment year of the account user. */
+    private String mEnrollmentYear;
+
+    /** The graduation year of the account user. */
+    private String mGraduationYear;
+
+    /** The minimum length required for a password to be considered valid. */
     private final static int PASSWORD_LEN = 6;
 
     /**
-     * Description //FIXME
+     * Creates an account using the passed email, password, first name, last name, student number,
+     * enrollment year and graduation year. Throws errors if: the email is not valid, the
+     * password is not valid, the student number is not a valid number, the enrollment year is
+     * not a valid number or if the graduation is not a valid number.
      *
-     * @param mEmail
-     * @param mPassword
+     * @param mEmail the email to be saved in this account as a String.
+     * @param mPassword the password to be saved in this account as a String.
+     * @param mFirstName the first name to saved in this account as a String.
+     * @param mLastName the last name to saved in this account as a String.
+     * @param mStudentNumber the student number to save in this account as a String.
+     * @param mEnrollmentYear the enrollment year to save in this account as a String.
+     * @param mGraduationYear the graduation year to save in this account as a String.
      */
-    public Account(String mEmail, String mPassword) {
+    public Account(String mEmail, String mPassword, String mFirstName, String mLastName,
+                   String mStudentNumber, String mEnrollmentYear, String mGraduationYear) {
         if(!isValidEmail(mEmail)){
             throw new IllegalArgumentException("Invalid email");
         }
         if(!isValidPassword(mPassword)){
             throw new IllegalArgumentException("Invalid password");
         }
+        int studNum = 0;
+        try {
+            studNum = Integer.parseInt(mStudentNumber);
+        } catch (NumberFormatException nf) {
+            throw new NumberFormatException("Invalid student number");
+        }
+
+        int enrollYear = 0;
+        try {
+            enrollYear = Integer.parseInt(mEnrollmentYear);
+        } catch (NumberFormatException nf) {
+            throw new NumberFormatException("Invalid enrollment year");
+        }
+
+        int gradYear = 0;
+        try {
+            gradYear = Integer.parseInt(mGraduationYear);
+        } catch (NumberFormatException nf) {
+            throw new NumberFormatException("Invalid graduation year");
+        }
+
         this.mEmail = mEmail;
         this.mPassword = mPassword;
+        this.mFirstName = mFirstName;
+        this.mLastName = mLastName;
+        this.mStudentNumber = mStudentNumber;
+        this.mEnrollmentYear = mEnrollmentYear;
+        this.mGraduationYear = mGraduationYear;
     }
 
     /**
-     * Description //FIXME
+     * Returns the email in this account.
      *
-     * @return
+     * @return the email stored in this account as a String.
      */
     public String getEmail() {
         return mEmail;
     }
 
     /**
-     * Description //FIXME
+     * Assigns the passed email to this account.
      *
-     * @param mEmail
+     * @param mEmail the email to assign to this account as a String.
      */
     public void setEmail(String mEmail) {
         if(!isValidEmail(mEmail)){
@@ -65,24 +115,130 @@ public class Account {
     }
 
     /**
-     * Description //FIXME
+     * Returns the password stored in this account.
      *
-     * @return
+     * @return the paswword stored in this account as a String.
      */
     public String getPassword() {
         return mPassword;
     }
 
     /**
-     * Description //FIXME
+     * Assigns the password in this account to the passed password as long as it is valid.
      *
-     * @param mPassword
+     * @param mPassword the password to be assigned to this account as a String.
      */
     public void setPassword(String mPassword) {
         if(!isValidPassword(mPassword)){
             throw new IllegalArgumentException("Invalid password");
         }
         this.mPassword = mPassword;
+    }
+
+    /**
+     * Returns the first name stored in this account.
+     *
+     * @return the first name stored in this account as a string.
+     */
+    public String getFirstName() {
+        return mFirstName;
+    }
+
+    /**
+     * Sets the first name in the account to the passed first name.
+     *
+     * @param mFirstName the first name to store in this account.
+     */
+    public void setFirstName(String mFirstName) {
+        this.mFirstName = mFirstName;
+    }
+
+    /**
+     * Returns the last name stored in this account.
+     *
+     * @return the last name stored in this account as a String.
+     */
+    public String getLastName() {
+        return mLastName;
+    }
+
+    /**
+     * Sets the last name in this account to the passed last name.
+     *
+     * @param mLastName the last name to store in this account as a String.
+     */
+    public void setLastName(String mLastName) {
+        this.mLastName = mLastName;
+    }
+
+    /**
+     * Returns the student number stored in this account.
+     *
+     * @return the student number stored in this account as a String.
+     */
+    public String getStudentNumber() {
+        return mStudentNumber;
+    }
+
+    /**
+     * Sets the student number in this account to the passed student number
+     *
+     * @param mStudentNumber the student number to store in this account as a String.
+     */
+    public void setStudentNumber(String mStudentNumber) {
+        try {
+            int value = Integer.parseInt(mStudentNumber);
+            this.mStudentNumber = mStudentNumber;
+        } catch (NumberFormatException nf) {
+            throw new NumberFormatException("Invalid student number");
+        }
+
+    }
+
+    /**
+     * Returns the enrollment year stored in this account.
+     *
+     * @return the enrollment year stored in this account as an String.
+     */
+    public String getEnrollmentYear() {
+        return mEnrollmentYear;
+    }
+
+    /**
+     * Sets the enrollment year in this account to the passed enrollment year.
+     *
+     * @param mEnrollmentYear the enrollment year to store in this account as a String.
+     */
+    public void setEnrollmentYear(String mEnrollmentYear) {
+        try {
+            int value = Integer.parseInt(mEnrollmentYear);
+            this.mEnrollmentYear = mEnrollmentYear;
+        } catch (NumberFormatException nf) {
+            throw new NumberFormatException("Invalid enrollment year");
+        }
+    }
+
+    /**
+     * Returns the graduation year stored in this account.
+     *
+     * @return the graduation year stored in this account as a String.
+     */
+    public String getGraduationYear() {
+        return mGraduationYear;
+    }
+
+    /**
+     * Sets the graduation year in this account to the passed enrollment year.
+     *
+     * @param mGraduationYear the graduation year to store in this account as a String.
+     */
+    public void setGraduationYear(String mGraduationYear) {
+        try {
+            int value = Integer.parseInt(mGraduationYear);
+            this.mGraduationYear = mGraduationYear;
+        } catch (NumberFormatException nf) {
+            throw new NumberFormatException("Invalid graduation year");
+        }
     }
 
     /** Email validation pattern. */
