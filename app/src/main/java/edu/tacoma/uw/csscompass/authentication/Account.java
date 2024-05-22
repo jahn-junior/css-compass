@@ -29,18 +29,15 @@ public class Account {
     /**
      * Description //FIXME
      *
-     * @param mEmail
-     * @param mPassword
+     * @param email
+     * @param password
      */
-    public Account(String mEmail, String mPassword) {
-        if(!isValidEmail(mEmail)){
-            throw new IllegalArgumentException("Invalid email");
-        }
-        if(!isValidPassword(mPassword)){
-            throw new IllegalArgumentException("Invalid password");
-        }
-        this.mEmail = mEmail;
-        this.mPassword = mPassword;
+    public Account(String email, String password) {
+        if(!isValidEmail(email)) throw new IllegalArgumentException("Invalid email");
+        if(!isValidPassword(password)) throw new IllegalArgumentException("Invalid password");
+
+        this.mEmail = email;
+        this.mPassword = password;
     }
 
     /**
@@ -55,13 +52,11 @@ public class Account {
     /**
      * Description //FIXME
      *
-     * @param mEmail
+     * @param email
      */
-    public void setEmail(String mEmail) {
-        if(!isValidEmail(mEmail)){
-            throw new IllegalArgumentException("Invalid email");
-        }
-        this.mEmail = mEmail;
+    public void setEmail(String email) {
+        if(!isValidEmail(email)) throw new IllegalArgumentException("Invalid email");
+        this.mEmail = email;
     }
 
     /**
@@ -76,13 +71,11 @@ public class Account {
     /**
      * Description //FIXME
      *
-     * @param mPassword
+     * @param password
      */
-    public void setPassword(String mPassword) {
-        if(!isValidPassword(mPassword)){
-            throw new IllegalArgumentException("Invalid password");
-        }
-        this.mPassword = mPassword;
+    public void setPassword(String password) {
+        if (!isValidPassword(password)) throw new IllegalArgumentException("Invalid password");
+        this.mPassword = password;
     }
 
     /** Email validation pattern. */

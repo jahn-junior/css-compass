@@ -38,7 +38,7 @@ public class EventDetailFragment extends Fragment {
         //Get a reference to the SafeArgs object
         EventDetailFragmentArgs args = EventDetailFragmentArgs.fromBundle(getArguments());
         Event event = (Event) args.getEvent();
-        mBinding.tittleTextView.setText(event.getTitle());
+        mBinding.titleTextView.setText(event.getTitle());
         String time = "";
         if(!(event.getTime().isEmpty())){
             time = ", " + event.getTime();
@@ -50,6 +50,16 @@ public class EventDetailFragment extends Fragment {
             Uri webpage = Uri.parse(event.getLink());
             Intent webIntent = new Intent(Intent.ACTION_VIEW, webpage);
             startActivity(webIntent);
+        });
+
+        mBinding.shareButton.setOnClickListener(v -> {
+            Intent sendIntent = new Intent();
+            sendIntent.setAction(Intent.ACTION_SEND);
+            sendIntent.putExtra(Intent.EXTRA_TEXT, "Check out this upcoming event!\n" + event.getLink());
+            sendIntent.setType("text/plain");
+
+            Intent shareIntent = Intent.createChooser(sendIntent, null);
+            startActivity(shareIntent);
         });
     }
 

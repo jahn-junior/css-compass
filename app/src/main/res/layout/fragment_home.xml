@@ -128,4 +128,14 @@
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/about_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:focusable="true"
+        android:clickable="true"
+        android:src="@android:drawable/ic_dialog_info"
+        android:translationY="525dp" />
+
 </FrameLayout>

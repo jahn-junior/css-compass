@@ -11,9 +11,9 @@
         CSS Compass was designed with the intention of helping both incoming and current CSS
         students reach their goals. The development team sought to compile useful resources that
         they felt aided their own journey, so that new students would have a launchpad for becoming
-        successful students/programmers.
+        successful students and programmers.
     </string>
-    <string name="about_header">Our Mission</string>
+    <string name="about_header">About CSS Compass</string>
     <string name="contact_info">
         Contact Us:\n
         JJ Coldiron: ecoldi@uw.edu\n
@@ -140,5 +140,7 @@
     <string name="title_events">Events</string>
     <string name="title_course">Courses</string>
     <string name="title_profile">Profile</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
