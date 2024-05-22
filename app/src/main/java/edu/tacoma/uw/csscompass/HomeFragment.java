@@ -41,9 +41,10 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mBinding.resourceCard.setOnClickListener(card -> navigateToResources());
-        mBinding.studySkillsCard.setOnClickListener(card -> navigateToStudySkills());
-        mBinding.setProgramCard.setOnClickListener(card -> navigateToSetProgram());
+        mBinding.resourceCard.setOnClickListener(v -> navigateToResources());
+        mBinding.studySkillsCard.setOnClickListener(v -> navigateToStudySkills());
+        mBinding.setProgramCard.setOnClickListener(v -> navigateToSetProgram());
+        mBinding.aboutButton.setOnClickListener(v -> navigateToAbout());
     }
 
     public void navigateToResources() {
@@ -56,5 +57,9 @@ public class HomeFragment extends Fragment {
 
     public void navigateToSetProgram() {
         Navigation.findNavController(getView()).navigate(R.id.action_homeFragment_to_setProgramFragment);
+    }
+
+    public void navigateToAbout() {
+        Navigation.findNavController(getView()).navigate(R.id.action_homeFragment_to_aboutFragment);
     }
 }

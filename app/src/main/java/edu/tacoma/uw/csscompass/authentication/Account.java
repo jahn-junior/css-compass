@@ -105,13 +105,11 @@ public class Account {
     /**
      * Assigns the passed email to this account.
      *
-     * @param mEmail the email to assign to this account as a String.
+     * @param email
      */
-    public void setEmail(String mEmail) {
-        if(!isValidEmail(mEmail)){
-            throw new IllegalArgumentException("Invalid email");
-        }
-        this.mEmail = mEmail;
+    public void setEmail(String email) {
+        if(!isValidEmail(email)) throw new IllegalArgumentException("Invalid email");
+        this.mEmail = email;
     }
 
     /**
@@ -126,13 +124,11 @@ public class Account {
     /**
      * Assigns the password in this account to the passed password as long as it is valid.
      *
-     * @param mPassword the password to be assigned to this account as a String.
+     * @param password
      */
-    public void setPassword(String mPassword) {
-        if(!isValidPassword(mPassword)){
-            throw new IllegalArgumentException("Invalid password");
-        }
-        this.mPassword = mPassword;
+    public void setPassword(String password) {
+        if (!isValidPassword(password)) throw new IllegalArgumentException("Invalid password");
+        this.mPassword = password;
     }
 
     /**

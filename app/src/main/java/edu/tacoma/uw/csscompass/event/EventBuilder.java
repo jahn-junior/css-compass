@@ -47,16 +47,16 @@ public class EventBuilder {
         Pattern descriptionPa = Pattern.compile(DESCRIPTIONPATTERN);
         Pattern linkPa = Pattern.compile(LINKPATTERN);
 
-        //We look for a time
-        String title = "no title";
+        // We look for a time
+        String title = "No Title";
         Matcher titleMatch = titlePa.matcher(item);
         if(titleMatch.find()){
             title = titleMatch.group(0).replaceAll(XMLPATTERN, "").replaceAll("&amp;", "&");
         }
 
-        //We look for a time
+        // We look for a time
         String time = "";
-        for(int i = 0; i < TIMEPATTERNS.length; i++){
+        for (int i = 0; i < TIMEPATTERNS.length; i++){
             Pattern timeParser = Pattern.compile(TIMEPATTERNS[i]);
             Matcher timeMatcher = timeParser.matcher(item);
             if(timeMatcher.find()){
@@ -65,21 +65,21 @@ public class EventBuilder {
             }
         }
 
-        //We look for a date
-        String date = "no date";
+        // We look for a date
+        String date = "No Date";
         Matcher dateMatch = datePa.matcher(item);
         if(dateMatch.find()){
             date = removeHTML(dateMatch.group(0));
         }
 
-        //We look for a description
-        String description = "no Description";
+        // We look for a description
+        String description = "No Description";
         Matcher descriptionMatch = descriptionPa.matcher(item);
         if(descriptionMatch.find()){
             description = removeHTML(descriptionMatch.group(0));
         }
 
-        String link = "no link";
+        String link = "No Link";
         Matcher linkMatch = linkPa.matcher(item);
         if(linkMatch.find()){
             link = linkMatch.group(0)
