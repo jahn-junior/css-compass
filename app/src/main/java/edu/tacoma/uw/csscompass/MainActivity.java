@@ -1,8 +1,10 @@
+/*
+ * TCSS 450 - Mobile Application Development
+ * Programming Project Sprint 2
+ */
+
 package edu.tacoma.uw.csscompass;
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -11,19 +13,33 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import edu.tacoma.uw.csscompass.authentication.LoginActivity;
-
+/**
+ * Description //FIXME
+ *
+ * @author JJ Coldiron
+ * @author Danie Oum
+ * @author Derek Ruiz-Garcia
+ * @version 1.0
+ */
 public class MainActivity extends AppCompatActivity {
 
+    /** Description //FIXME */
     private AppBarConfiguration mAppBarConfiguration;
 
+    /**
+     * Description //FIXME
+     *
+     * @param savedInstanceState If the activity is being re-initialized after
+     *     previously being shut down then this Bundle contains the data it most
+     *     recently supplied in {@link #onSaveInstanceState}.  <b><i>Note: Otherwise it is null.</i></b>
+     *
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,14 +64,7 @@ public class MainActivity extends AppCompatActivity {
         //NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
 
-        //This will add the listener to the logout button, setting the activity as the loginActivity
-        findViewById(R.id.logout_button).setOnClickListener(v -> {
-                SharedPreferences sharedPreferences = getSharedPreferences(getString(R.string.LOGIN_PREFS), Context.MODE_PRIVATE);
-                sharedPreferences.edit().putBoolean(getString(R.string.LOGGEDIN), false).commit();
-
-                Intent i = new Intent(this, LoginActivity.class);
-                startActivity(i);
-                finish();
-        });
+        // removed title bar, can tweak later
+        getSupportActionBar().hide();
     }
 }

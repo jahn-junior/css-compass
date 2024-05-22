@@ -1,3 +1,8 @@
+/*
+ * TCSS 450 - Mobile Application Development
+ * Programming Project Sprint 2
+ */
+
 package edu.tacoma.uw.csscompass;
 
 import android.os.Bundle;
@@ -13,6 +18,14 @@ import android.view.ViewGroup;
 
 import edu.tacoma.uw.csscompass.databinding.FragmentHomeBinding;
 
+/**
+ * Description //FIXME
+ *
+ * @author JJ Coldiron
+ * @author Danie Oum
+ * @author Derek Ruiz-Garcia
+ * @version 1.0
+ */
 public class HomeFragment extends Fragment {
     private FragmentHomeBinding mBinding;
 
@@ -28,11 +41,25 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mBinding.resourceCard.setOnClickListener(card -> navigateToResources());
+        mBinding.resourceCard.setOnClickListener(v -> navigateToResources());
+        mBinding.studySkillsCard.setOnClickListener(v -> navigateToStudySkills());
+        mBinding.setProgramCard.setOnClickListener(v -> navigateToSetProgram());
+        mBinding.aboutButton.setOnClickListener(v -> navigateToAbout());
     }
 
     public void navigateToResources() {
         Navigation.findNavController(getView()).navigate(R.id.action_homeFragment_to_resourceFragment);
     }
 
+    public void navigateToStudySkills() {
+        Navigation.findNavController(getView()).navigate(R.id.action_homeFragment_to_studySkillsFragment);
+    }
+
+    public void navigateToSetProgram() {
+        Navigation.findNavController(getView()).navigate(R.id.action_homeFragment_to_setProgramFragment);
+    }
+
+    public void navigateToAbout() {
+        Navigation.findNavController(getView()).navigate(R.id.action_homeFragment_to_aboutFragment);
+    }
 }

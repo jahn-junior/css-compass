@@ -1,3 +1,8 @@
+/*
+ * TCSS 450 - Mobile Application Development
+ * Programming Project Sprint 2
+ */
+
 package edu.tacoma.uw.csscompass.authentication;
 
 import static android.content.ContentValues.TAG;
@@ -21,14 +26,36 @@ import org.json.JSONObject;
 import edu.tacoma.uw.csscompass.databinding.FragmentRegisterBinding;
 
 /**
- * A simple {@link Fragment} subclass.
+ * The register fragment used to register the user into the app.
+ *
+ * @author JJ Coldiron
+ * @author Danie Oum
+ * @author Derek Ruiz-Garcia
+ * @version 1.0
  */
 public class RegisterFragment extends Fragment {
 
+    /** The binding class used to inflate the layout of the fragment. */
     private FragmentRegisterBinding mBinding;
 
+    /** The view model used by the register class and fragment */
     private RegisterViewModel mRegisterViewModel;
 
+    /**
+     * This overrides the onCreateView from the fragment class, initializes the ViewModel
+     * associated with the fragment's parent activity, inflates the layout defined in the XML
+     * file using data binding, and returns the root View of the inflated layout.
+     *
+     * @param inflater The LayoutInflater object that can be used to inflate
+     * any views in the fragment,
+     * @param container If non-null, this is the parent view that the fragment's
+     * UI should be attached to.  The fragment should not add the view itself,
+     * but this can be used to generate the LayoutParams of the view.
+     * @param savedInstanceState If non-null, this fragment is being re-constructed
+     * from a previous saved state as given here.
+     *
+     * @return the View of the inflated layout.
+     */
     // Binding is assigned to the View Bindings (converts the xml into objects that we can interact with programmatically).
     @Override
     public View onCreateView (LayoutInflater inflater,
@@ -40,7 +67,14 @@ public class RegisterFragment extends Fragment {
         return mBinding.getRoot();
     }
 
-    // We add a listener to the register button once the view is created
+    /**
+     * This adds a response to the Register View Model, and binds an action listener to
+     * the register button to register the user once it is clicked once the View is created.
+     *
+     * @param view The View returned by {@link #onCreateView(LayoutInflater, ViewGroup, Bundle)}.
+     * @param savedInstanceState If non-null, this fragment is being re-constructed
+     * from a previous saved state as given here.
+     */
     @Override
     public void onViewCreated (@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -51,21 +85,30 @@ public class RegisterFragment extends Fragment {
         mBinding.registerButton.setOnClickListener(button -> register());
     }
 
-    // Remove the reference to binding when the Fragment View is destroyed
+    /** Removes the reference to binding when the Fragment View is destroyed */
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         mBinding = null;
     }
 
-    // This will obtain the values from emailRegisterBox and pwdRegisterBox and will add the user.
+    /**
+     * This obtains the values from all the text boxes in the register fragment, and adds
+     * it to the user profile.
+     */
     public void register() {
         String email = String.valueOf(mBinding.emailRegisterBox.getText());
         String pwd = String.valueOf(mBinding.pwdRegisterBox.getText());
+        String firstName = String.valueOf(mBinding.fnameRegisterBox.getText());
+        String lastName = String.valueOf(mBinding.lnameRegisterBox.getText());
+        String studentNumber = String.valueOf(mBinding.studentNumRegisterBox.getText());
+        String enrollmentYear = String.valueOf(mBinding.enrollYearRegisterBox.getText());
+        String graduationYear = String.valueOf(mBinding.gradYearRegisterBox.getText());
+
         Account account;
 
         try {
-            account = new Account(email, pwd);
+            account = new Account(email, pwd, firstName, lastName, studentNumber, enrollmentYear, graduationYear);
         } catch(IllegalArgumentException ie) {
             Log.e(TAG, ie.getMessage());
             Toast.makeText(getContext(), ie.getMessage(), Toast.LENGTH_LONG).show();
@@ -76,8 +119,15 @@ public class RegisterFragment extends Fragment {
         mRegisterViewModel.addUser(account);
     }
 
-    // Checks if we got a response, if the response we got is an error, and if there is
-    // response and no error then the user is added to the database.
+    /**
+     * This is the response that gets called when the User attepmts to register, meaning it
+     * catches whether the user was able to register successfully or not, showing a toast
+     * with the type of response (fail or success).
+     *
+     * @param response the response as a JSONObject obtained from the user attempt to
+     *                 register to the app, providing errors or success messages
+     *                 depending on the value stored inside of the response.
+     */
     private void observeResponse(final JSONObject response) {
         if (response.length() > 0) {
             if (response.has("error")) {

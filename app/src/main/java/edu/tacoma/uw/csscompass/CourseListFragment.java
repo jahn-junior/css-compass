@@ -1,3 +1,8 @@
+/*
+ * TCSS 450 - Mobile Application Development
+ * Programming Project Sprint 2
+ */
+
 package edu.tacoma.uw.csscompass;
 
 import android.os.Bundle;
@@ -15,10 +20,14 @@ import org.jetbrains.annotations.Nullable;
 import edu.tacoma.uw.csscompass.databinding.FragmentCourseListBinding;
 
 /**
- * A simple {@link Fragment} subclass.
+ * Description //FIXME
+ *
+ * @author JJ Coldiron
+ * @author Danie Oum
+ * @author Derek Ruiz-Garcia
+ * @version 1.0
  */
 public class CourseListFragment extends Fragment {
-
 
     private ClassesViewModel mModel;
 
@@ -28,6 +37,20 @@ public class CourseListFragment extends Fragment {
         mModel = new ViewModelProvider(getActivity()).get(ClassesViewModel.class);
         mModel.getClasses();
     }
+
+    /**
+     * Description //FIXME
+     *
+     * @param inflater The LayoutInflater object that can be used to inflate
+     * any views in the fragment,
+     * @param container If non-null, this is the parent view that the fragment's
+     * UI should be attached to.  The fragment should not add the view itself,
+     * but this can be used to generate the LayoutParams of the view.
+     * @param savedInstanceState If non-null, this fragment is being re-constructed
+     * from a previous saved state as given here.
+     *
+     * @return The root view
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

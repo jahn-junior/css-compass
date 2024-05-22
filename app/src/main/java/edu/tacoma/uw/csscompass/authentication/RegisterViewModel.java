@@ -1,3 +1,8 @@
+/*
+ * TCSS 450 - Mobile Application Development
+ * Programming Project Sprint 2
+ */
+
 package edu.tacoma.uw.csscompass.authentication;
 
 import android.app.Application;
@@ -21,11 +26,26 @@ import org.json.JSONObject;
 import java.nio.charset.Charset;
 import java.util.Objects;
 
+/**
+ * A register view model that handles registering a user into the app.
+ *
+ * @author JJ Coldiron
+ * @author Danie Oum
+ * @author Derek Ruiz-Garcia
+ * @version 1.0
+ */
 public class RegisterViewModel extends AndroidViewModel {
 
+    /**
+     * The response that will contain the outcome of trying to add a user account to the database
+     */
     private MutableLiveData<JSONObject> mResponse;
 
-    // Sets the response JSON
+    /**
+     * Sets up the response, initializing the view model with the passed application.
+     *
+     * @param application the application used to initialize this View Model.
+     */
     public RegisterViewModel(@NonNull Application application) {
         super(application);
         mResponse = new MutableLiveData<>();
@@ -33,11 +53,23 @@ public class RegisterViewModel extends AndroidViewModel {
 
     }
 
+    /**
+     * This adds the observer that will be looking for a response stored in this ViewModel.
+     *
+     * @param owner the owner of the response as a LifecycleOwner.
+     * @param observer the observer of the response as a Observer<? super JSONObject>.
+     */
     public void addResponseObserver(@NonNull LifecycleOwner owner,
                                     @NonNull Observer<? super JSONObject> observer) {
         mResponse.observe(owner, observer);
     }
 
+    /**
+     * This handles the error response that gets generated when the call to adda user
+     * to the database fails.
+     *
+     * @param error the error response as a VolleyError that specifies what the response was.
+     */
     private void handleError(final VolleyError error) {
         if (Objects.isNull(error.networkResponse)) {
             try {
@@ -61,13 +93,23 @@ public class RegisterViewModel extends AndroidViewModel {
         }
     }
 
-    // Adds the user to the database
+    /**
+     * Adds a user to the database using the data of the passed Account object.
+     *
+     * @param account the account as an Account object with the information that is going
+     *                to be stored in the app's database.
+     */
     public void addUser(Account account) {
         String url = "https://students.washington.edu/djruiz49/db_css_compass/register_user.php";
         JSONObject body = new JSONObject();
         try {
             body.put("email", account.getEmail());
             body.put("password", account.getPassword());
+            body.put("first_name", account.getFirstName());
+            body.put("last_name", account.getLastName());
+            body.put("student_number", account.getStudentNumber());
+            body.put("enrollment_year", account.getEnrollmentYear());
+            body.put("graduation_year", account.getGraduationYear());
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -79,7 +121,7 @@ public class RegisterViewModel extends AndroidViewModel {
                 mResponse::setValue,
                 this::handleError);
 
-        Log.i("UserViewModel", request.getUrl().toString());
+        Log.i("RegisterViewModel", request.getUrl().toString());
         request.setRetryPolicy(new DefaultRetryPolicy(
                 10_000,
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,

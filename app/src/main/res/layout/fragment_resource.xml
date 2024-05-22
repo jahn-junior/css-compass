@@ -16,88 +16,130 @@
         android:text="@string/resources_text"
         android:textSize="24sp" />
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="644dp"
-            android:layout_margin="25dp"
-            android:translationY="62dp">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="568dp"
+        android:layout_margin="25dp"
+        android:translationY="62dp">
 
-            <LinearLayout
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/pantry"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/hammersmith_one"
+                android:text="@string/pantry_text"
+                android:textAlignment="viewStart"
+                android:textColor="@color/husky_purple"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/pantry_body"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/hammersmith_one"
+                android:text="@string/pantry_body"
+                android:textAlignment="viewStart"
+                android:textSize="14sp" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp" />
+
+
+            <TextView
+                android:id="@+id/pantry_link"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:text="@string/learn_more"
+                android:textAlignment="center"
+                android:textColor="@color/husky_purple"
+                android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/pantry"
-                    android:textColor="@color/husky_purple"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/hammersmith_one"
-                    android:text="@string/pantry_text"
-                    android:textAlignment="viewStart"
-                    android:textSize="20sp" />
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp" />
 
-                <TextView
-                    android:id="@+id/pantry_body"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/hammersmith_one"
-                    android:text="@string/placeholder"
-                    android:textAlignment="viewStart"
-                    android:textSize="14sp" />
+            <TextView
+                android:id="@+id/dubnet"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/hammersmith_one"
+                android:text="@string/dubnet_text"
+                android:textAlignment="viewStart"
+                android:textColor="@color/husky_purple"
+                android:textSize="20sp" />
 
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="16dp" />
+            <TextView
+                android:id="@+id/dubnet_body"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/hammersmith_one"
+                android:text="@string/dubnet_body"
+                android:textAlignment="viewStart"
+                android:textSize="14sp" />
 
-                <TextView
-                    android:id="@+id/dubnet"
-                    android:textColor="@color/husky_purple"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/hammersmith_one"
-                    android:text="@string/dubnet_text"
-                    android:textAlignment="viewStart"
-                    android:textSize="20sp" />
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp" />
 
-                <TextView
-                    android:id="@+id/dubnet_body"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/hammersmith_one"
-                    android:text="@string/placeholder"
-                    android:textAlignment="viewStart"
-                    android:textSize="14sp" />
 
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="16dp" />
+            <TextView
+                android:id="@+id/dubnet_link"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/learn_more"
+                android:textAlignment="center"
+                android:textColor="@color/husky_purple"
+                android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/parking"
-                    android:textColor="@color/husky_purple"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/hammersmith_one"
-                    android:text="@string/parking_text"
-                    android:textAlignment="viewStart"
-                    android:textSize="20sp" />
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp" />
 
-                <TextView
-                    android:id="@+id/parking_body"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/hammersmith_one"
-                    android:text="@string/placeholder"
-                    android:textAlignment="viewStart"
-                    android:textSize="14sp" />
+            <TextView
+                android:id="@+id/parking"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/hammersmith_one"
+                android:text="@string/parking_text"
+                android:textAlignment="viewStart"
+                android:textColor="@color/husky_purple"
+                android:textSize="20sp" />
 
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="16dp" />
+            <TextView
+                android:id="@+id/parking_body"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/hammersmith_one"
+                android:text="@string/parking_body"
+                android:textAlignment="viewStart"
+                android:textSize="14sp" />
 
-            </LinearLayout>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp" />
 
-        </ScrollView>
+
+            <TextView
+                android:id="@+id/parking_link"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/learn_more"
+                android:textAlignment="center"
+                android:textColor="@color/husky_purple"
+                android:textStyle="bold" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp" />
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </FrameLayout>
