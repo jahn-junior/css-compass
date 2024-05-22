@@ -10,23 +10,25 @@ public class AccountTest {
 
     @Test
     public void testConstructorValid() {
-        Account account = new Account("testuser@test.com", "test12!");
+        Account account = new Account("testuser@test.com", "test12!", "", "", "", "", "");
         assertNotNull(account);
     }
 
     @Test
     public void testConstructorInvalidEmail() {
-        assertThrows(IllegalArgumentException.class, () -> new Account("bad", "testpw12!"));
+        assertThrows(IllegalArgumentException.class, () ->
+                new Account("testuser@test.com", "test12!", "", "", "", "", ""));
     }
 
     @Test
     public void testConstructorInvalidPassword() {
-        assertThrows(IllegalArgumentException.class, () -> new Account("test@test.com", "bad"));
+        assertThrows(IllegalArgumentException.class, () ->
+                new Account("testuser@test.com", "test12!", "", "", "", "", ""));
     }
 
     @Test
     public void testGetEmail() {
-        Account account = new Account("testuser@test.com", "test12!");
+        Account account = new Account("testuser@test.com", "test12!", "", "", "", "", "");
         String expected = "testuser@test.com";
         String actual = account.getEmail();
         assertEquals(expected, actual);
@@ -34,13 +36,13 @@ public class AccountTest {
 
     @Test
     public void testSetEmailInvalid() {
-        Account validAccount = new Account("testuser@test.com", "test12!");
+        Account validAccount = new Account("testuser@test.com", "test12!", "", "", "", "", "");
         assertThrows(IllegalArgumentException.class, () -> validAccount.setEmail("badEmail"));
     }
 
     @Test
     public void testSetEmailValid() {
-        Account validAccount = new Account("testuser@test.com", "test12!");
+        Account validAccount = new Account("testuser@test.com", "test12!", "", "", "", "", "");
         validAccount.setEmail("validemail@test.com");
         String expected = "validemail@test.com";
         String actual = validAccount.getEmail();
@@ -49,7 +51,7 @@ public class AccountTest {
 
     @Test
     public void getPassword() {
-        Account validAccount = new Account("testuser@test.com", "test12!");
+        Account validAccount =new Account("testuser@test.com", "test12!", "", "", "", "", "");
         String expected = "test12!";
         String actual = validAccount.getPassword();
         assertEquals(expected, actual);
@@ -57,13 +59,13 @@ public class AccountTest {
 
     @Test
     public void testSetPasswordInvalid() {
-        Account validAccount = new Account("testuser@test.com", "test12!");
+        Account validAccount = new Account("testuser@test.com", "test12!", "", "", "", "", "");
         assertThrows(IllegalArgumentException.class, () -> validAccount.setPassword("pw"));
     }
 
     @Test
     public void testSetPasswordValid() {
-        Account validAccount = new Account("testuser@test.com", "test12!");
+        Account validAccount = new Account("testuser@test.com", "test12!", "", "", "", "", "");
         validAccount.setPassword("greatpassword-649");
         String actual = "greatpassword-649";
         String expected = validAccount.getPassword();

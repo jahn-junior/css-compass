@@ -47,50 +47,46 @@ public class Account {
      * password is not valid, the student number is not a valid number, the enrollment year is
      * not a valid number or if the graduation is not a valid number.
      *
-     * @param mEmail the email to be saved in this account as a String.
-     * @param mPassword the password to be saved in this account as a String.
-     * @param mFirstName the first name to saved in this account as a String.
-     * @param mLastName the last name to saved in this account as a String.
-     * @param mStudentNumber the student number to save in this account as a String.
-     * @param mEnrollmentYear the enrollment year to save in this account as a String.
-     * @param mGraduationYear the graduation year to save in this account as a String.
+     * @param email the email to be saved in this account as a String.
+     * @param password the password to be saved in this account as a String.
+     * @param firstName the first name to saved in this account as a String.
+     * @param lastName the last name to saved in this account as a String.
+     * @param studentNumber the student number to save in this account as a String.
+     * @param enrollmentYear the enrollment year to save in this account as a String.
+     * @param graduationYear the graduation year to save in this account as a String.
      */
-    public Account(String mEmail, String mPassword, String mFirstName, String mLastName,
-                   String mStudentNumber, String mEnrollmentYear, String mGraduationYear) {
-        if(!isValidEmail(mEmail)){
-            throw new IllegalArgumentException("Invalid email");
-        }
-        if(!isValidPassword(mPassword)){
-            throw new IllegalArgumentException("Invalid password");
-        }
-        int studNum = 0;
+    public Account(String email, String password, String firstName, String lastName,
+                   String studentNumber, String enrollmentYear, String graduationYear) {
+
+        if(!isValidEmail(email)) throw new IllegalArgumentException("Invalid email");
+
+        if(!isValidPassword(password)) throw new IllegalArgumentException("Invalid password");
+
         try {
-            studNum = Integer.parseInt(mStudentNumber);
+            int studNum = Integer.parseInt(studentNumber);
         } catch (NumberFormatException nf) {
             throw new NumberFormatException("Invalid student number");
         }
 
-        int enrollYear = 0;
         try {
-            enrollYear = Integer.parseInt(mEnrollmentYear);
+            int enrollYear = Integer.parseInt(enrollmentYear);
         } catch (NumberFormatException nf) {
             throw new NumberFormatException("Invalid enrollment year");
         }
 
-        int gradYear = 0;
         try {
-            gradYear = Integer.parseInt(mGraduationYear);
+            int gradYear = Integer.parseInt(graduationYear);
         } catch (NumberFormatException nf) {
             throw new NumberFormatException("Invalid graduation year");
         }
 
-        this.mEmail = mEmail;
-        this.mPassword = mPassword;
-        this.mFirstName = mFirstName;
-        this.mLastName = mLastName;
-        this.mStudentNumber = mStudentNumber;
-        this.mEnrollmentYear = mEnrollmentYear;
-        this.mGraduationYear = mGraduationYear;
+        this.mEmail = email;
+        this.mPassword = password;
+        this.mFirstName = firstName;
+        this.mLastName = lastName;
+        this.mStudentNumber = studentNumber;
+        this.mEnrollmentYear = enrollmentYear;
+        this.mGraduationYear = graduationYear;
     }
 
     /**
@@ -105,7 +101,7 @@ public class Account {
     /**
      * Assigns the passed email to this account.
      *
-     * @param email
+     * @param email the email to be assigned to this account as a String.
      */
     public void setEmail(String email) {
         if(!isValidEmail(email)) throw new IllegalArgumentException("Invalid email");
@@ -124,7 +120,7 @@ public class Account {
     /**
      * Assigns the password in this account to the passed password as long as it is valid.
      *
-     * @param password
+     * @param password the password to be assigned to this account as a String.
      */
     public void setPassword(String password) {
         if (!isValidPassword(password)) throw new IllegalArgumentException("Invalid password");
@@ -143,10 +139,10 @@ public class Account {
     /**
      * Sets the first name in the account to the passed first name.
      *
-     * @param mFirstName the first name to store in this account.
+     * @param firstName the first name to store in this account.
      */
-    public void setFirstName(String mFirstName) {
-        this.mFirstName = mFirstName;
+    public void setFirstName(String firstName) {
+        this.mFirstName = firstName;
     }
 
     /**
@@ -161,10 +157,10 @@ public class Account {
     /**
      * Sets the last name in this account to the passed last name.
      *
-     * @param mLastName the last name to store in this account as a String.
+     * @param lastName the last name to store in this account as a String.
      */
-    public void setLastName(String mLastName) {
-        this.mLastName = mLastName;
+    public void setLastName(String lastName) {
+        this.mLastName = lastName;
     }
 
     /**
@@ -179,12 +175,12 @@ public class Account {
     /**
      * Sets the student number in this account to the passed student number
      *
-     * @param mStudentNumber the student number to store in this account as a String.
+     * @param studentNumber the student number to store in this account as a String.
      */
-    public void setStudentNumber(String mStudentNumber) {
+    public void setStudentNumber(String studentNumber) {
         try {
-            int value = Integer.parseInt(mStudentNumber);
-            this.mStudentNumber = mStudentNumber;
+            int value = Integer.parseInt(studentNumber);
+            this.mStudentNumber = studentNumber;
         } catch (NumberFormatException nf) {
             throw new NumberFormatException("Invalid student number");
         }
@@ -203,12 +199,12 @@ public class Account {
     /**
      * Sets the enrollment year in this account to the passed enrollment year.
      *
-     * @param mEnrollmentYear the enrollment year to store in this account as a String.
+     * @param enrollmentYear the enrollment year to store in this account as a String.
      */
-    public void setEnrollmentYear(String mEnrollmentYear) {
+    public void setEnrollmentYear(String enrollmentYear) {
         try {
-            int value = Integer.parseInt(mEnrollmentYear);
-            this.mEnrollmentYear = mEnrollmentYear;
+            int value = Integer.parseInt(enrollmentYear);
+            this.mEnrollmentYear = enrollmentYear;
         } catch (NumberFormatException nf) {
             throw new NumberFormatException("Invalid enrollment year");
         }
@@ -226,12 +222,12 @@ public class Account {
     /**
      * Sets the graduation year in this account to the passed enrollment year.
      *
-     * @param mGraduationYear the graduation year to store in this account as a String.
+     * @param graduationYear the graduation year to store in this account as a String.
      */
-    public void setGraduationYear(String mGraduationYear) {
+    public void setGraduationYear(String graduationYear) {
         try {
-            int value = Integer.parseInt(mGraduationYear);
-            this.mGraduationYear = mGraduationYear;
+            int value = Integer.parseInt(graduationYear);
+            this.mGraduationYear = graduationYear;
         } catch (NumberFormatException nf) {
             throw new NumberFormatException("Invalid graduation year");
         }
