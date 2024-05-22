@@ -264,9 +264,7 @@ public class Account {
      */
     public static boolean isValidPassword(String password) {
         boolean foundDigit = false, foundSymbol = false;
-        if (password == null ||
-                password.length() < PASSWORD_LEN)
-            return false;
+        if (password == null || password.length() < PASSWORD_LEN) return false;
         for (int i = 0; i < password.length(); i++) {
             if (Character.isDigit(password.charAt(i)))
                 foundDigit = true;
