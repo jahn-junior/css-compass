@@ -21,7 +21,6 @@ import android.view.ViewGroup;
 import edu.tacoma.uw.csscompass.authentication.LoginActivity;
 import edu.tacoma.uw.csscompass.databinding.FragmentProfileBinding;
 
-
 /**
  * Description //FIXME
  *
@@ -64,10 +63,21 @@ public class ProfileFragment extends Fragment {
      */
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        SharedPreferences sharedPreferences = this.getActivity().getSharedPreferences(getString(R.string.LOGIN_PREFS), Context.MODE_PRIVATE);
+
+        //Binding the user data.
+        mBinding.userEmail.setText(sharedPreferences.getString("email", "No email found"));
+        mBinding.userFname.setText(sharedPreferences.getString("first_name", "No first name found"));
+        mBinding.userLname.setText(sharedPreferences.getString("last_name", "No last name found"));
+        mBinding.userStudentNum.setText(sharedPreferences.getString("student_number", "No student number found"));
+        mBinding.userEnrollYear.setText(sharedPreferences.getString("enrollment_year", "No enrollment year found"));
+        mBinding.userGradYear.setText(sharedPreferences.getString("graduation_year", "No graduation year found"));
+
         mBinding.logoutButton.setOnClickListener(v -> {
-            SharedPreferences sharedPreferences = this.getActivity().getSharedPreferences(getString(R.string.LOGIN_PREFS), Context.MODE_PRIVATE);
+//            SharedPreferences sharedPreferences = this.getActivity().getSharedPreferences(getString(R.string.LOGIN_PREFS), Context.MODE_PRIVATE);
             sharedPreferences.edit().putBoolean(getString(R.string.LOGGEDIN), false).commit();
 
+            //No need to remove the preferences from the last user since when a user logs in again they will be simply overwritten.
             Intent i = new Intent(this.getActivity(), LoginActivity.class);
             startActivity(i);
         });
