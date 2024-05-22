@@ -43,13 +43,26 @@
         android:id="@+id/navigation_course_list"
         android:name="edu.tacoma.uw.csscompass.CourseListFragment"
         android:label="fragment_course_list"
-        tools:layout="@layout/fragment_course_list" />
+        tools:layout="@layout/fragment_course_list" >
+        <action
+            android:id="@+id/action_navigation_course_list_to_courseDetailFragment"
+            app:destination="@id/courseDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_profile"
         android:name="edu.tacoma.uw.csscompass.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
     <fragment
+        android:id="@+id/courseDetailFragment"
+        android:name="edu.tacoma.uw.csscompass.CourseDetailFragment"
+        android:label="fragment_course_detail"
+        tools:layout="@layout/fragment_course_detail" >
+        <argument
+            android:name="classes"
+            app:argType="edu.tacoma.uw.csscompass.Classes" />
+    </fragment>
+
         android:id="@+id/navigation_events"
         android:name="edu.tacoma.uw.csscompass.event.EventListFragment"
         android:label="fragment_event_list"
@@ -72,4 +85,5 @@
         android:name="edu.tacoma.uw.csscompass.AboutFragment"
         android:label="fragment_about"
         tools:layout="@layout/fragment_about" />
+
 </navigation>
