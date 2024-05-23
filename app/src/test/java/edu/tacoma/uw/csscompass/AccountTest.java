@@ -46,7 +46,7 @@ public class AccountTest {
 
     @Test
     public void testConstructorInvalidEnrollYear() {
-        assertThrows(NumberFormatException.class, () ->
+        assertThrows(IllegalArgumentException.class, () ->
                 new Account("testuser@test.com",
                         "test12!",
                         "John",
@@ -70,7 +70,7 @@ public class AccountTest {
 
     @Test
     public void testConstructorInvalidStudentNo() {
-        assertThrows(NumberFormatException.class, () ->
+        assertThrows(IllegalArgumentException.class, () ->
                 new Account("testuser@test.com",
                         "test12!",
                         "John",
@@ -198,7 +198,7 @@ public class AccountTest {
     }
 
     @Test
-    public void testSetStudentNumberInvalid() {
+    public void testSetStudentNumberIAException() {
         Account validAccount = new Account("testuser@test.com",
                 "test12!",
                 "John",
@@ -206,11 +206,11 @@ public class AccountTest {
                 "1234567",
                 "2016",
                 "2020");
-        assertThrows(NumberFormatException.class, () -> validAccount.setStudentNumber("num"));
+        assertThrows(IllegalArgumentException.class, () -> validAccount.setStudentNumber("12345678"));
     }
 
     @Test
-    public void testSetEnrollYearInvalid() {
+    public void testSetEnrollYearException() {
         Account validAccount = new Account("testuser@test.com",
                 "test12!",
                 "John",
@@ -218,11 +218,11 @@ public class AccountTest {
                 "1234567",
                 "2016",
                 "2020");
-        assertThrows(NumberFormatException.class, () -> validAccount.setEnrollmentYear("year"));
+        assertThrows(IllegalArgumentException.class, () -> validAccount.setEnrollmentYear("year"));
     }
 
     @Test
-    public void testSetGradYearInvalid() {
+    public void testSetGradYearException() {
         Account validAccount = new Account("testuser@test.com",
                 "test12!",
                 "John",
@@ -230,7 +230,62 @@ public class AccountTest {
                 "1234567",
                 "2016",
                 "2020");
-        assertThrows(NumberFormatException.class, () -> validAccount.setGraduationYear("year"));
+        assertThrows(IllegalArgumentException.class, () -> validAccount.setGraduationYear("year"));
+    }
+
+    @Test
+    public void testIsValidGradYearTrue() {
+        assertTrue(Account.isValidGradYear("2024", "2020"));
+    }
+
+    @Test
+    public void testIsValidGradYearPatternMismatch() {
+        assertFalse(Account.isValidGradYear("02024", "2020"));
+    }
+
+    @Test
+    public void testIsValidGradYearNull() {
+        assertFalse(Account.isValidGradYear(null, "2020"));
+    }
+
+    @Test
+    public void testIsValidGradYearFuture() {
+        assertFalse(Account.isValidGradYear("3000", "2020"));
+    }
+
+    @Test
+    public void testIsValidGradYearTimeTravel() {
+        assertFalse(Account.isValidGradYear("2020", "2024"));
+    }
+
+    @Test
+    public void testIsValidEnrollYearTrue() {
+        assertTrue(Account.isValidEnrollYear("2020", "2024"));
+    }
+
+    @Test
+    public void testIsValidEnrollYearNull() {
+        assertFalse(Account.isValidEnrollYear(null, "2024"));
+    }
+
+    @Test
+    public void testIsValidEnrollYearPatternMismatch() {
+        assertFalse(Account.isValidEnrollYear("02020", "2024"));
+    }
+
+    @Test
+    public void testIsValidEnrollYearTooOld() {
+        assertFalse(Account.isValidEnrollYear("1989", "1993"));
+    }
+
+    @Test
+    public void testIsValidEnrollYearTimeTravel() {
+        assertFalse(Account.isValidEnrollYear("2024", "2020"));
+    }
+
+    @Test
+    public void testIsValidStudentNumberTrue() {
+        assertTrue(Account.isValidStudentNo("1234567"));
     }
 
 }
