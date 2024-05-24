@@ -71,6 +71,7 @@ public class EventViewModel extends AndroidViewModel {
             String xmlEntry = entryMatcher.group(1);
             Event event = buildEvent(xmlEntry);
             if(firstEvent){
+                mEventList.setValue(new ArrayList<>());
                 mEventList.getValue().add(new Event("Event", "Time", "Date", "Description", "link"));
                 firstEvent = false;
             }

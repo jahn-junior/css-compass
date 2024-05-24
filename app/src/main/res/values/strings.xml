@@ -133,7 +133,8 @@
     <string name="student_num">Student No.</string>
     <string name="enroll_year">Enrollment Year</string>
     <string name="grad_year">Graduation Year</string>
-    <string name="logout">Logout</string>
+    <string name="myevents">MY EVENTS</string>
+    <string name="logout">LOGOUT</string>
 
     <!-- Navigation menu text -->
     <string name="title_home">Home</string>

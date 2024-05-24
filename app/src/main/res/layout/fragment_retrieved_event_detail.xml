@@ -2,10 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/layout_root"
+    android:id="@+id/retrieved_event_detail_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".event.EventDetailFragment"
+    tools:context=".event.RetrievedEventDetailFragment"
     tools:layout_editor_absoluteX="-23dp"
     tools:layout_editor_absoluteY="-21dp">
 
@@ -51,19 +51,6 @@
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@+id/descriptionTextView" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/save_event_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        android:focusable="true"
-        android:src="@android:drawable/ic_input_add"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.383"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/eventLink"
-        app:layout_constraintVertical_bias="0.121" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/share_button"
@@ -74,9 +61,9 @@
         android:src="@android:drawable/ic_menu_share"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.614"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/eventLink"
-        app:layout_constraintVertical_bias="0.121" />
+        app:layout_constraintVertical_bias="0.117" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
