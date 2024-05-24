@@ -29,7 +29,7 @@ public class Account {
     );
 
     /** Year validation pattern. **/
-    public static final Pattern YEAR_PATTERN = Pattern.compile("[Z0-9]{1,4}");
+    public static final Pattern YEAR_PATTERN = Pattern.compile("[Z0-9]{4}");
 
     /** Student number validation pattern. */
     public static final Pattern STUDENT_NO_PATTERN = Pattern.compile("[Z0-9]{7}");

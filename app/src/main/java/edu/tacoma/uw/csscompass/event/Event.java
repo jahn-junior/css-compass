@@ -26,9 +26,13 @@ public class Event implements Serializable {
 
     public final static String TITLE = "title";
 
+    public final static String TIME = "time";
+
     public final static String DATE = "date";
 
     public final static String DESCRIPTION = "description";
+
+    public final static String LINK = "link";
 
     public Event(String mTitle, String mTime, String mDate, String mDescription, String mlink) {
         this.mTitle = mTitle;

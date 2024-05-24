@@ -14,25 +14,25 @@ import java.util.List;
 import edu.tacoma.uw.csscompass.R;
 import edu.tacoma.uw.csscompass.databinding.FragmentEventBinding;
 
-public class EventRecyclerViewAdapter  extends
-            RecyclerView.Adapter<EventRecyclerViewAdapter.ViewHolder> {
+public class RetrieveEventsRecyclerViewAdapter  extends
+        RecyclerView.Adapter<RetrieveEventsRecyclerViewAdapter.ViewHolder> {
 
     private final List<Event> mValues;
 
-    public EventRecyclerViewAdapter(List<Event> eventList) {
+    public RetrieveEventsRecyclerViewAdapter(List<Event> eventList) {
         mValues = eventList;
     }
 
     @NonNull
     @Override
-    public EventRecyclerViewAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public RetrieveEventsRecyclerViewAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return new ViewHolder(LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.fragment_event, parent, false ));
 
     }
 
     @Override
-    public void onBindViewHolder(@NonNull EventRecyclerViewAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull RetrieveEventsRecyclerViewAdapter.ViewHolder holder, int position) {
         holder.setItem(mValues.get(position));
     }
 
@@ -58,8 +58,8 @@ public class EventRecyclerViewAdapter  extends
             binding.eventTitle.setText(mItem.getTitle());
             if(!(mItem.getTitle().equals("Event"))){
                 binding.eventTitle.setOnClickListener(view -> {
-                    EventListFragmentDirections.ActionNavigationEventsToEventDetailFragment directions =
-                            EventListFragmentDirections.actionNavigationEventsToEventDetailFragment(item);
+                    SavedEventListFragmentDirections.ActionSavedEventListFragmentToRetrievedEventDetailFragment directions =
+                            SavedEventListFragmentDirections.actionSavedEventListFragmentToRetrievedEventDetailFragment(item);
 
                     Navigation.findNavController(mView).navigate(directions);
                 });

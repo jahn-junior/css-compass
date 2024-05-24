@@ -13,7 +13,9 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,8 +65,13 @@ public class ProfileFragment extends Fragment {
         mBinding.userEnrollYear.setText(sharedPreferences.getString("enrollment_year", "No enrollment year found"));
         mBinding.userGradYear.setText(sharedPreferences.getString("graduation_year", "No graduation year found"));
 
+        // Set up the saved events fragment
+        mBinding.myEventsButton.setOnClickListener(v -> {
+            Navigation.findNavController(getView())
+                    .navigate(R.id.action_navigation_profile_to_savedEventListFragment);
+        });
+
         mBinding.logoutButton.setOnClickListener(v -> {
-//            SharedPreferences sharedPreferences = this.getActivity().getSharedPreferences(getString(R.string.LOGIN_PREFS), Context.MODE_PRIVATE);
             sharedPreferences.edit().putBoolean(getString(R.string.LOGGEDIN), false).commit();
 
             //No need to remove the preferences from the last user since when a user logs in again they will be simply overwritten.
