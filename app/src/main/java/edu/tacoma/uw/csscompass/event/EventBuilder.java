@@ -91,6 +91,7 @@ public class EventBuilder {
     }
 
     public static String removeHTML(String input){
+
         return input
                 .replaceAll("&lt;br /&gt;", "\n")
                 .replaceAll("&amp;quot;", "\"")

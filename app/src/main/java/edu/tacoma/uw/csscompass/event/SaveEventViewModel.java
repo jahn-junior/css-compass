@@ -1,4 +1,4 @@
-package edu.tacoma.uw.csscompass;
+package edu.tacoma.uw.csscompass.event;
 
 import android.app.Application;
 import android.util.Log;
@@ -15,34 +15,49 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.nio.charset.Charset;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
-public class ClassesViewModel extends AndroidViewModel {
+import edu.tacoma.uw.csscompass.authentication.Account;
 
+public class SaveEventViewModel extends AndroidViewModel {
+
+    /**
+     * The response that will contain the outcome of trying to add an event to the database
+     */
     private MutableLiveData<JSONObject> mResponse;
 
-    private MutableLiveData<List<Classes>> mClassesList;
-
-    public ClassesViewModel(@NonNull Application application) {
+    /**
+     * Sets up the response, initializing the view model with the passed application.
+     *
+     * @param application the application used to initialize this View Model.
+     */
+    public SaveEventViewModel(@NonNull Application application) {
         super(application);
         mResponse = new MutableLiveData<>();
         mResponse.setValue(new JSONObject());
-        mClassesList = new MutableLiveData<>();
-        mClassesList.setValue(new ArrayList<>());
     }
 
+    /**
+     * This adds the observer that will be looking for a response stored in this ViewModel.
+     *
+     * @param owner the owner of the response as a LifecycleOwner.
+     * @param observer the observer of the response as a Observer<? super JSONObject>.
+     */
     public void addResponseObserver(@NonNull LifecycleOwner owner,
                                     @NonNull Observer<? super JSONObject> observer) {
         mResponse.observe(owner, observer);
     }
 
+    /**
+     * This handles the error response that gets generated when the call to add an event
+     * to the database fails.
+     *
+     * @param error the error response as a VolleyError that specifies what the response was.
+     */
     private void handleError(final VolleyError error) {
         if (Objects.isNull(error.networkResponse)) {
             try {
@@ -66,40 +81,27 @@ public class ClassesViewModel extends AndroidViewModel {
         }
     }
 
-    public void addAnimalListObserver(@NonNull LifecycleOwner owner,
-                                      @NonNull Observer<? super List<Classes>> observer) {
-        mClassesList.observe(owner, observer);
-    }
+    //Saves an event for the user.
+    public void saveEvent(String userEmail, Event event) {
+        String url = "https://students.washington.edu/djruiz49/db_css_compass/add_event.php";
 
-    private void handleResult(final JSONObject result) {
+        JSONObject body = new JSONObject();
         try {
-            String data = result.getString("classes");
-            JSONArray arr = new JSONArray(data);
-            mClassesList.setValue(new ArrayList<>());
-            for (int i = 0; i < arr.length(); i++) {
-                JSONObject obj = arr.getJSONObject(i);
-                Classes classes = new Classes(Integer.parseInt(obj.getString(Classes.ID)),
-                        obj.getString(Classes.COURSE),
-                        obj.getString(Classes.TITLE));
-                mClassesList.getValue().add(classes);
-            }
-
+            body.put("user_email", userEmail);
+            body.put("title", event.getTitle());
+            body.put("time", event.getTime());
+            body.put("date", event.getDate());
+            body.put("description", event.getDescription());
+            body.put("link", event.getLink());
         } catch (JSONException e) {
             e.printStackTrace();
-            Log.e("ERROR!", e.getMessage());
         }
-        mClassesList.setValue(mClassesList.getValue());
-    }
-
-    public void getClasses() {
-        String url =
-                "https://students.washington.edu/danieoum/db_css_compass/get_classes.php";
 
         Request request = new JsonObjectRequest(
-                Request.Method.GET,
+                Request.Method.POST,
                 url,
-                null, //no body for this get request
-                this::handleResult,
+                body, //no body for this get request
+                mResponse::setValue,
                 this::handleError);
 
         request.setRetryPolicy(new DefaultRetryPolicy(
@@ -109,6 +111,5 @@ public class ClassesViewModel extends AndroidViewModel {
         //Instantiate the RequestQueue and add the request to the queue
         Volley.newRequestQueue(getApplication().getApplicationContext())
                 .add(request);
-
     }
 }

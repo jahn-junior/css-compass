@@ -1,4 +1,4 @@
-package edu.tacoma.uw.csscompass;
+package edu.tacoma.uw.csscompass.event;
 
 import android.app.Application;
 import android.util.Log;
@@ -24,23 +24,23 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class ClassesViewModel extends AndroidViewModel {
+public class RetrieveEventsViewModel extends AndroidViewModel {
 
     private MutableLiveData<JSONObject> mResponse;
 
-    private MutableLiveData<List<Classes>> mClassesList;
+    private MutableLiveData<List<Event>> mEventList;
 
-    public ClassesViewModel(@NonNull Application application) {
+    public RetrieveEventsViewModel(@NonNull Application application) {
         super(application);
         mResponse = new MutableLiveData<>();
         mResponse.setValue(new JSONObject());
-        mClassesList = new MutableLiveData<>();
-        mClassesList.setValue(new ArrayList<>());
+        mEventList = new MutableLiveData<>();
+        mEventList.setValue(new ArrayList<>());
     }
 
-    public void addResponseObserver(@NonNull LifecycleOwner owner,
-                                    @NonNull Observer<? super JSONObject> observer) {
-        mResponse.observe(owner, observer);
+    public void addEventListObserver(@NonNull LifecycleOwner owner,
+                                      @NonNull Observer<? super List<Event>> observer) {
+        mEventList.observe(owner, observer);
     }
 
     private void handleError(final VolleyError error) {
@@ -66,39 +66,50 @@ public class ClassesViewModel extends AndroidViewModel {
         }
     }
 
-    public void addAnimalListObserver(@NonNull LifecycleOwner owner,
-                                      @NonNull Observer<? super List<Classes>> observer) {
-        mClassesList.observe(owner, observer);
-    }
-
     private void handleResult(final JSONObject result) {
         try {
-            String data = result.getString("classes");
+            String data = result.getString("events");
             JSONArray arr = new JSONArray(data);
-            mClassesList.setValue(new ArrayList<>());
-            for (int i = 0; i < arr.length(); i++) {
-                JSONObject obj = arr.getJSONObject(i);
-                Classes classes = new Classes(Integer.parseInt(obj.getString(Classes.ID)),
-                        obj.getString(Classes.COURSE),
-                        obj.getString(Classes.TITLE));
-                mClassesList.getValue().add(classes);
+            if(arr.length() > 0){
+                mEventList.setValue(new ArrayList<>());
+                Event titleEvent = new Event("Event", "", "Date", "", "");
+                mEventList.getValue().add(titleEvent);
+                for (int i = 0; i < arr.length(); i++) {
+                    JSONObject obj = arr.getJSONObject(i);
+                    Event event = new Event(obj.getString(Event.TITLE),
+                            obj.getString(Event.TIME),
+                            obj.getString(Event.DATE),
+                            obj.getString(Event.DESCRIPTION),
+                            obj.getString(Event.LINK));
+                    mEventList.getValue().add(event);
+                }
+            } else {
+                Event titleEvent = new Event("Events found!", "", "No", "", "");
+                mEventList.getValue().add(titleEvent);
             }
+
 
         } catch (JSONException e) {
             e.printStackTrace();
             Log.e("ERROR!", e.getMessage());
         }
-        mClassesList.setValue(mClassesList.getValue());
+        mEventList.setValue(mEventList.getValue());
     }
 
-    public void getClasses() {
-        String url =
-                "https://students.washington.edu/danieoum/db_css_compass/get_classes.php";
+    public void getSavedEvents(String userEmail) {
+        String url = "https://students.washington.edu/djruiz49/db_css_compass/get_events.php";
+
+        JSONObject body = new JSONObject();
+        try {
+            body.put("email", userEmail);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
         Request request = new JsonObjectRequest(
-                Request.Method.GET,
+                Request.Method.POST,
                 url,
-                null, //no body for this get request
+                body,
                 this::handleResult,
                 this::handleError);
 
@@ -109,6 +120,6 @@ public class ClassesViewModel extends AndroidViewModel {
         //Instantiate the RequestQueue and add the request to the queue
         Volley.newRequestQueue(getApplication().getApplicationContext())
                 .add(request);
-
     }
+
 }

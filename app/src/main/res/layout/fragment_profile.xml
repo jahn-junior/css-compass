@@ -196,6 +196,18 @@
         </LinearLayout>
 
         <Button
+            android:id="@+id/my_events_button"
+            android:layout_width="75dp"
+            android:layout_height="35dp"
+            android:layout_marginBottom="8dp"
+            android:layout_gravity="bottom|center"
+            android:background="@color/husky_purple"
+            android:fontFamily="@font/hammersmith_one"
+            android:text="@string/myevents"
+            android:textAlignment="center"
+            android:textColor="@color/husky_gold" />
+
+        <Button
             android:id="@+id/logout_button"
             android:layout_width="75dp"
             android:layout_height="35dp"

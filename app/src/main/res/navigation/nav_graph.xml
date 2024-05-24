@@ -5,7 +5,6 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/navigation_home">
 
-<!--    android:name="edu.tacoma.uw.csscompass.RegisterFragment"-->
     <fragment
         android:id="@+id/navigation_home"
         android:name="edu.tacoma.uw.csscompass.HomeFragment"
@@ -52,7 +51,11 @@
         android:id="@+id/navigation_profile"
         android:name="edu.tacoma.uw.csscompass.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_navigation_profile_to_savedEventListFragment"
+            app:destination="@id/savedEventListFragment" />
+    </fragment>
     <fragment
         android:id="@+id/courseDetailFragment"
         android:name="edu.tacoma.uw.csscompass.CourseDetailFragment"
@@ -62,7 +65,7 @@
             android:name="classes"
             app:argType="edu.tacoma.uw.csscompass.Classes" />
     </fragment>
-
+    <fragment
         android:id="@+id/navigation_events"
         android:name="edu.tacoma.uw.csscompass.event.EventListFragment"
         android:label="fragment_event_list"
@@ -85,5 +88,23 @@
         android:name="edu.tacoma.uw.csscompass.AboutFragment"
         android:label="fragment_about"
         tools:layout="@layout/fragment_about" />
+    <fragment
+        android:id="@+id/savedEventListFragment"
+        android:name="edu.tacoma.uw.csscompass.event.SavedEventListFragment"
+        android:label="fragment_saved_event_list"
+        tools:layout="@layout/fragment_saved_event_list" >
+        <action
+            android:id="@+id/action_savedEventListFragment_to_retrievedEventDetailFragment"
+            app:destination="@id/retrievedEventDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/retrievedEventDetailFragment"
+        android:name="edu.tacoma.uw.csscompass.event.RetrievedEventDetailFragment"
+        android:label="fragment_retrieved_event_detail"
+        tools:layout="@layout/fragment_retrieved_event_detail">
+        <argument
+            android:name="event"
+            app:argType="edu.tacoma.uw.csscompass.event.Event" />
+    </fragment>
 
 </navigation>

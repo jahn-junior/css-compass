@@ -13,7 +13,9 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +24,7 @@ import edu.tacoma.uw.csscompass.authentication.LoginActivity;
 import edu.tacoma.uw.csscompass.databinding.FragmentProfileBinding;
 
 /**
- * Description //FIXME
+ * Profile tab fragment to display relevant user information.
  *
  * @author JJ Coldiron
  * @author Danie Oum
@@ -31,21 +33,11 @@ import edu.tacoma.uw.csscompass.databinding.FragmentProfileBinding;
  */
 public class ProfileFragment extends Fragment {
 
-    /** Description //FIXME */
+    /** View-binding object. */
     private FragmentProfileBinding mBinding;
 
     /**
-     * Description //FIXME
-     *
-     * @param inflater The LayoutInflater object that can be used to inflate
-     * any views in the fragment,
-     * @param container If non-null, this is the parent view that the fragment's
-     * UI should be attached to.  The fragment should not add the view itself,
-     * but this can be used to generate the LayoutParams of the view.
-     * @param savedInstanceState If non-null, this fragment is being re-constructed
-     * from a previous saved state as given here.
-     *
-     * @return
+     * @inheritDoc
      */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -55,7 +47,7 @@ public class ProfileFragment extends Fragment {
     }
 
     /**
-     * Description //FIXME
+     * Sets text fields to display the user information provided during account registration.
      *
      * @param view The View returned by {@link #onCreateView(LayoutInflater, ViewGroup, Bundle)}.
      * @param savedInstanceState If non-null, this fragment is being re-constructed
@@ -73,8 +65,13 @@ public class ProfileFragment extends Fragment {
         mBinding.userEnrollYear.setText(sharedPreferences.getString("enrollment_year", "No enrollment year found"));
         mBinding.userGradYear.setText(sharedPreferences.getString("graduation_year", "No graduation year found"));
 
+        // Set up the saved events fragment
+        mBinding.myEventsButton.setOnClickListener(v -> {
+            Navigation.findNavController(getView())
+                    .navigate(R.id.action_navigation_profile_to_savedEventListFragment);
+        });
+
         mBinding.logoutButton.setOnClickListener(v -> {
-//            SharedPreferences sharedPreferences = this.getActivity().getSharedPreferences(getString(R.string.LOGIN_PREFS), Context.MODE_PRIVATE);
             sharedPreferences.edit().putBoolean(getString(R.string.LOGGEDIN), false).commit();
 
             //No need to remove the preferences from the last user since when a user logs in again they will be simply overwritten.
