@@ -21,7 +21,7 @@ import edu.tacoma.uw.csscompass.databinding.FragmentResourceBinding;
 import edu.tacoma.uw.csscompass.databinding.FragmentSetProgramBinding;
 
 /**
- * Description //FIXME
+ * Fragment for the resources page.
  *
  * @author JJ Coldiron
  * @author Danie Oum
@@ -30,21 +30,11 @@ import edu.tacoma.uw.csscompass.databinding.FragmentSetProgramBinding;
  */
 public class ResourceFragment extends Fragment {
 
-    /** Description //FIXME */
+    /** View binding object. */
     private FragmentResourceBinding mBinding;
 
     /**
-     * Description //FIXME
-     *
-     * @param inflater The LayoutInflater object that can be used to inflate
-     * any views in the fragment,
-     * @param container If non-null, this is the parent view that the fragment's
-     * UI should be attached to.  The fragment should not add the view itself,
-     * but this can be used to generate the LayoutParams of the view.
-     * @param savedInstanceState If non-null, this fragment is being re-constructed
-     * from a previous saved state as given here.
-     *
-     * @return
+     * @inheritDoc
      */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -54,7 +44,7 @@ public class ResourceFragment extends Fragment {
     }
 
     /**
-     * Description //FIXME
+     * Attaches listeners to "Learn More" links that launch the appropriate webpage.
      *
      * @param view The View returned by {@link #onCreateView(LayoutInflater, ViewGroup, Bundle)}.
      * @param savedInstanceState If non-null, this fragment is being re-constructed

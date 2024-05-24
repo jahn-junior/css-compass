@@ -8,6 +8,9 @@ import org.junit.Test;
 import edu.tacoma.uw.csscompass.event.Event;
 import edu.tacoma.uw.csscompass.event.EventBuilder;
 
+/**
+ * JUnit test case for the EventBuilder class.
+ */
 public class EventBuilderTest {
 
     private Event validEvent;
@@ -20,6 +23,9 @@ public class EventBuilderTest {
 
     private Event eventNoLink;
 
+    /**
+     * Creates entries and Event objects for use in the tests.
+     */
     @Before
     public void setup() {
         String validEntry = "<entry>\n" +
@@ -114,6 +120,9 @@ public class EventBuilderTest {
         eventNoLink = EventBuilder.buildEvent(noLinkEntry);
     }
 
+    /**
+     * Tests the removeHTML method.
+     */
     @Test
     public void testRemoveHTML() {
         String input = "&lt;br /&gt;&amp;quot;&amp;amp;&amp;lt;&amp;gt;" +
@@ -124,6 +133,9 @@ public class EventBuilderTest {
         assertEquals(expected, actual);
     }
 
+    /**
+     * Tests that event titles are parsed correctly.
+     */
     @Test
     public void testBuildEventValidTitle() {
         String expected = "Registration Period 2 - Summer Quarter";
@@ -131,6 +143,9 @@ public class EventBuilderTest {
         assertEquals(expected, actual);
     }
 
+    /**
+     * Tests that event dates are parsed correctly.
+     */
     @Test
     public void testBuildEventValidDate() {
         String expected = "Ongoing through Sunday, June 16, 2024";
@@ -138,6 +153,9 @@ public class EventBuilderTest {
         assertEquals(expected, actual);
     }
 
+    /**
+     * Tests that event descriptions are parsed correctly.
+     */
     @Test
     public void testBuildEventValidDescription() {
         String expected = "Registration for summer quarter opens at midnight. Applies to newly a" +
@@ -146,6 +164,9 @@ public class EventBuilderTest {
         assertEquals(expected, actual);
     }
 
+    /**
+     * Tests that event links are parsed correctly.
+     */
     @Test
     public void testBuildEventValidLink() {
         String expected = "https://www.tacoma.uw.edu/home/events-calendar?trumbaEmbed=view%3deve" +
@@ -154,6 +175,9 @@ public class EventBuilderTest {
         assertEquals(expected, actual);
     }
 
+    /**
+     * Tests buildEvent when no title is provided in the XML entry.
+     */
     @Test
     public void testBuildEventNoTitle() {
         String expected = "No Title";
@@ -161,6 +185,9 @@ public class EventBuilderTest {
         assertEquals(expected, actual);
     }
 
+    /**
+     * Tests buildEvent when no date is provided in the XML entry.
+     */
     @Test
     public void testBuildEventNoDate() {
         String expected = "No Date";
@@ -168,6 +195,9 @@ public class EventBuilderTest {
         assertEquals(expected, actual);
     }
 
+    /**
+     * Tests buildEvent when no description is provided in the XML entry.
+     */
     @Test
     public void testBuildEventNoDescription() {
         String expected = "No Description";
@@ -175,6 +205,9 @@ public class EventBuilderTest {
         assertEquals(expected, actual);
     }
 
+    /**
+     * Tests buildEvent when no link is provided in the XMl entry.
+     */
     @Test
     public void testBuildEventNoLink() {
         String expected = "No Link";

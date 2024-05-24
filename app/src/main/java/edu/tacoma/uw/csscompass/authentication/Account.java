@@ -17,6 +17,26 @@ import java.util.regex.Pattern;
  */
 public class Account {
 
+    /** Email validation pattern. */
+    public static final Pattern EMAIL_PATTERN = Pattern.compile(
+            "[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +
+                    "\\@" +
+                    "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
+                    "(" +
+                    "\\." +
+                    "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
+                    ")+"
+    );
+
+    /** Year validation pattern. **/
+    public static final Pattern YEAR_PATTERN = Pattern.compile("[Z0-9]{1,4}");
+
+    /** Student number validation pattern. */
+    public static final Pattern STUDENT_NO_PATTERN = Pattern.compile("[Z0-9]{7}");
+
+    /** The minimum length required for a password to be considered valid. */
+    private final static int PASSWORD_LEN = 6;
+
     /** The email of this account. */
     private String mEmail;
 
@@ -37,9 +57,6 @@ public class Account {
 
     /** The graduation year of the account user. */
     private String mGraduationYear;
-
-    /** The minimum length required for a password to be considered valid. */
-    private final static int PASSWORD_LEN = 6;
 
     /**
      * Creates an account using the passed email, password, first name, last name, student number,
@@ -62,22 +79,16 @@ public class Account {
 
         if(!isValidPassword(password)) throw new IllegalArgumentException("Invalid password");
 
-        try {
-            int studNum = Integer.parseInt(studentNumber);
-        } catch (NumberFormatException nf) {
-            throw new NumberFormatException("Invalid student number");
+        if (!isValidEnrollYear(enrollmentYear, graduationYear)) {
+            throw new IllegalArgumentException("Invalid enrollment year");
         }
 
-        try {
-            int enrollYear = Integer.parseInt(enrollmentYear);
-        } catch (NumberFormatException nf) {
-            throw new NumberFormatException("Invalid enrollment year");
+        if (!isValidGradYear(graduationYear, enrollmentYear)) {
+            throw new IllegalArgumentException("Invalid graduation year");
         }
 
-        try {
-            int gradYear = Integer.parseInt(graduationYear);
-        } catch (NumberFormatException nf) {
-            throw new NumberFormatException("Invalid graduation year");
+        if (!isValidStudentNo(studentNumber)) {
+            throw new IllegalArgumentException("Invalid student number");
         }
 
         this.mEmail = email;
@@ -179,8 +190,12 @@ public class Account {
      */
     public void setStudentNumber(String studentNumber) {
         try {
-            int value = Integer.parseInt(studentNumber);
-            this.mStudentNumber = studentNumber;
+            if (isValidStudentNo(studentNumber)) {
+                int value = Integer.parseInt(studentNumber);
+                this.mStudentNumber = studentNumber;
+            } else {
+                throw new IllegalArgumentException("Invalid student number");
+            }
         } catch (NumberFormatException nf) {
             throw new NumberFormatException("Invalid student number");
         }
@@ -202,11 +217,11 @@ public class Account {
      * @param enrollmentYear the enrollment year to store in this account as a String.
      */
     public void setEnrollmentYear(String enrollmentYear) {
-        try {
+        if (isValidEnrollYear(enrollmentYear, this.mGraduationYear)) {
             int value = Integer.parseInt(enrollmentYear);
             this.mEnrollmentYear = enrollmentYear;
-        } catch (NumberFormatException nf) {
-            throw new NumberFormatException("Invalid enrollment year");
+        } else {
+            throw new IllegalArgumentException("Invalid enrollment year");
         }
     }
 
@@ -225,24 +240,13 @@ public class Account {
      * @param graduationYear the graduation year to store in this account as a String.
      */
     public void setGraduationYear(String graduationYear) {
-        try {
+        if (isValidGradYear(graduationYear, this.mEnrollmentYear)) {
             int value = Integer.parseInt(graduationYear);
             this.mGraduationYear = graduationYear;
-        } catch (NumberFormatException nf) {
-            throw new NumberFormatException("Invalid graduation year");
+        } else {
+            throw new IllegalArgumentException("Invalid graduation year");
         }
     }
-
-    /** Email validation pattern. */
-    public static final Pattern EMAIL_PATTERN = Pattern.compile(
-            "[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +
-                    "\\@" +
-                    "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
-                    "(" +
-                    "\\." +
-                    "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
-                    ")+"
-    );
 
     /**
      * Validates if the given input is a valid email address.
@@ -264,9 +268,7 @@ public class Account {
      */
     public static boolean isValidPassword(String password) {
         boolean foundDigit = false, foundSymbol = false;
-        if (password == null ||
-                password.length() < PASSWORD_LEN)
-            return false;
+        if (password == null || password.length() < PASSWORD_LEN) return false;
         for (int i = 0; i < password.length(); i++) {
             if (Character.isDigit(password.charAt(i)))
                 foundDigit = true;
@@ -274,5 +276,41 @@ public class Account {
                 foundSymbol = true;
         }
         return foundDigit && foundSymbol;
+    }
+
+    /**
+     *
+     * @param enrollYear
+     * @param gradYear
+     * @return
+     */
+    public static boolean isValidEnrollYear(String enrollYear, String gradYear) {
+        return enrollYear != null &&
+                YEAR_PATTERN.matcher(enrollYear).matches() &&
+                Integer.parseInt(enrollYear) >= 1990 &&
+                Integer.parseInt(enrollYear) < Integer.parseInt(gradYear);
+    }
+
+    /**
+     *
+     * @param gradYear
+     * @param enrollYear
+     * @return
+     */
+    public static boolean isValidGradYear(String gradYear, String enrollYear) {
+        return gradYear != null &&
+                YEAR_PATTERN.matcher(gradYear).matches() &&
+                Integer.parseInt(gradYear) <= 2050 &&
+                Integer.parseInt(gradYear) > Integer.parseInt(enrollYear);
+    }
+
+    /**
+     *
+     *
+     * @param studentNo
+     * @return
+     */
+    public static boolean isValidStudentNo(String studentNo) {
+        return studentNo != null && STUDENT_NO_PATTERN.matcher(studentNo).matches();
     }
 }

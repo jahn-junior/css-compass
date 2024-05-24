@@ -20,7 +20,7 @@ import org.jetbrains.annotations.Nullable;
 import edu.tacoma.uw.csscompass.databinding.FragmentCourseListBinding;
 
 /**
- * Description //FIXME
+ * Fragment for the course list page.
  *
  * @author JJ Coldiron
  * @author Danie Oum
@@ -39,17 +39,7 @@ public class CourseListFragment extends Fragment {
     }
 
     /**
-     * Description //FIXME
-     *
-     * @param inflater The LayoutInflater object that can be used to inflate
-     * any views in the fragment,
-     * @param container If non-null, this is the parent view that the fragment's
-     * UI should be attached to.  The fragment should not add the view itself,
-     * but this can be used to generate the LayoutParams of the view.
-     * @param savedInstanceState If non-null, this fragment is being re-constructed
-     * from a previous saved state as given here.
-     *
-     * @return The root view
+     * @inheritDoc
      */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
