@@ -118,7 +118,7 @@ public class LoginFragment extends Fragment {
         Account account;
         try {
             account = new Account(email, pwd, "noName", "noName",
-                    "0", "0", "0");
+                    "1234567", "2020", "2024");
         } catch(IllegalArgumentException ie) {
             Log.e(TAG, ie.getMessage());
             Toast.makeText(getContext(), ie.getMessage(), Toast.LENGTH_LONG).show();
