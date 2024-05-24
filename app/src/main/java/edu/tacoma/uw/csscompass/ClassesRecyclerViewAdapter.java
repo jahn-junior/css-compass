@@ -1,3 +1,8 @@
+/*
+ * TCSS 450 - Mobile Application Development
+ * Programming Project Sprint 2
+ */
+
 package edu.tacoma.uw.csscompass;
 
 import android.view.LayoutInflater;
@@ -12,6 +17,14 @@ import java.util.List;
 
 import edu.tacoma.uw.csscompass.databinding.FragmentCourseBinding;
 
+/**
+ * Recycler view for the course list.
+ *
+ * @author JJ Coldiron
+ * @author Danie Oum
+ * @author Derek Ruiz-Garcia
+ * @version 1.0
+ */
 public class ClassesRecyclerViewAdapter extends
         RecyclerView.Adapter<ClassesRecyclerViewAdapter.ViewHolder>{
 
