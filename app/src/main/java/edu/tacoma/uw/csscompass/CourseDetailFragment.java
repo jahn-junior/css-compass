@@ -1,3 +1,8 @@
+/*
+ * TCSS 450 - Mobile Application Development
+ * Programming Project Sprint 2
+ */
+
 package edu.tacoma.uw.csscompass;
 
 import android.os.Bundle;
@@ -14,7 +19,12 @@ import org.jetbrains.annotations.Nullable;
 import edu.tacoma.uw.csscompass.databinding.FragmentCourseDetailBinding;
 
 /**
- * A simple {@link Fragment} subclass.
+ * Fragment for the course list details.
+ *
+ * @author JJ Coldiron
+ * @author Danie Oum
+ * @author Derek Ruiz-Garcia
+ * @version 1.0
  */
 public class CourseDetailFragment extends Fragment {
 
