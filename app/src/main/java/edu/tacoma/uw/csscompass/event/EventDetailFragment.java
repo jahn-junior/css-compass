@@ -112,7 +112,7 @@ public class EventDetailFragment extends Fragment {
                 }
 
             } else {
-                Toast.makeText(this.getContext(),"Event Saved", Toast.LENGTH_LONG).show();
+//                Toast.makeText(this.getContext(),"Event Saved", Toast.LENGTH_LONG).show();
             }
 
         } else {
