@@ -1,7 +1,20 @@
+/*
+ * TCSS 450 - Mobile Application Development
+ * Programming Project Sprint 2
+ */
+
 package edu.tacoma.uw.csscompass;
 
 import java.io.Serializable;
 
+/**
+ * Serializable Classes for the course list.
+ *
+ * @author JJ Coldiron
+ * @author Danie Oum
+ * @author Derek Ruiz-Garcia
+ * @version 1.0
+ */
 public class Classes implements Serializable {
     private int mId;
     private String mTitle;

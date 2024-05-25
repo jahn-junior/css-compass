@@ -1,3 +1,8 @@
+/*
+ * TCSS 450 - Mobile Application Development
+ * Programming Project Sprint 2
+ */
+
 package edu.tacoma.uw.csscompass;
 
 import android.app.Application;
@@ -24,6 +29,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * View model for the course list.
+ *
+ * @author JJ Coldiron
+ * @author Danie Oum
+ * @author Derek Ruiz-Garcia
+ * @version 1.0
+ */
 public class ClassesViewModel extends AndroidViewModel {
 
     private MutableLiveData<JSONObject> mResponse;
