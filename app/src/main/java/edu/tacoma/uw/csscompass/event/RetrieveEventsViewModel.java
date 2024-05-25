@@ -24,12 +24,26 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * A view model used for retrieving events saved by the user.
+ *
+ * @author JJ Coldiron
+ * @author Danie Oum
+ * @author Derek Ruiz-Garcia
+ * @version 1.0
+ */
 public class RetrieveEventsViewModel extends AndroidViewModel {
 
+    /** The response used to deal with the outcome of trying to retrieve the saved events. */
     private MutableLiveData<JSONObject> mResponse;
 
+    /** The list of events that were stored by the user. */
     private MutableLiveData<List<Event>> mEventList;
 
+    /**
+     * Initializes the response and list of saved events inside of this view model.
+     * @param application the application context to be passed to the parent.
+     */
     public RetrieveEventsViewModel(@NonNull Application application) {
         super(application);
         mResponse = new MutableLiveData<>();
@@ -38,11 +52,22 @@ public class RetrieveEventsViewModel extends AndroidViewModel {
         mEventList.setValue(new ArrayList<>());
     }
 
+    /**
+     * Adds an observer to the list of saved events using the passed owner and observer.
+     * @param owner the life cycle owner.
+     * @param observer the observer that will be looking at the list of user saved events.
+     */
     public void addEventListObserver(@NonNull LifecycleOwner owner,
                                       @NonNull Observer<? super List<Event>> observer) {
         mEventList.observe(owner, observer);
     }
 
+    /**
+     * Handles the error generated when trying to retrieve the events saved by the user
+     * on the database.
+     *
+     * @param error the error as a VolleyError containing information about the error.
+     */
     private void handleError(final VolleyError error) {
         if (Objects.isNull(error.networkResponse)) {
             try {
@@ -66,6 +91,14 @@ public class RetrieveEventsViewModel extends AndroidViewModel {
         }
     }
 
+    /**
+     * Handles the result generated when successfully retrieving the events saved by the
+     * user on the database.
+     * Parsing through it and storing each event on even objects and then storing them in
+     * the list of user events.
+     *
+     * @param result the result containing the user saved events as a JSONObject.
+     */
     private void handleResult(final JSONObject result) {
         try {
             String data = result.getString("events");
@@ -96,6 +129,11 @@ public class RetrieveEventsViewModel extends AndroidViewModel {
         mEventList.setValue(mEventList.getValue());
     }
 
+    /**
+     * Retrieves the user saved events from the database by the user with the passed email.
+     * @param userEmail the email as a String of the user from whom we want to obtain their events
+     *                  that have already been stored in the database.
+     */
     public void getSavedEvents(String userEmail) {
         String url = "https://students.washington.edu/djruiz49/db_css_compass/get_events.php";
 

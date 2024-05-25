@@ -27,7 +27,6 @@ import edu.tacoma.uw.csscompass.databinding.FragmentCourseDetailBinding;
  * @version 1.0
  */
 public class CourseDetailFragment extends Fragment {
-
     private FragmentCourseDetailBinding mBinding;
 
     @Override

@@ -279,10 +279,14 @@ public class Account {
     }
 
     /**
+     * Validates if the given enrollment year is valid.
+     * Valid enrollment year nut not be null,
+     * should be in the right format, should be greater than
+     * 1990 and less than the passed graduation year.
      *
-     * @param enrollYear
-     * @param gradYear
-     * @return
+     * @param enrollYear the enrollment year to validate
+     * @param gradYear the grad year to use to validate the enrollment year.
+     * @return a boolean value indicating true if the enrollment year is valid and false otherwise.
      */
     public static boolean isValidEnrollYear(String enrollYear, String gradYear) {
         return enrollYear != null &&
@@ -292,10 +296,14 @@ public class Account {
     }
 
     /**
+     * Validates if the graduation year is valid.
+     * Valid graduation year must not be null,
+     * should be in the right format, should be less than 2050
+     * and greater than the enrollment year.
      *
-     * @param gradYear
-     * @param enrollYear
-     * @return
+     * @param gradYear the graduation year to validate.
+     * @param enrollYear the enrollment year to use to validate the graduation year.
+     * @return a boolean value indicating true if the graduation year is valid and false otherwise.
      */
     public static boolean isValidGradYear(String gradYear, String enrollYear) {
         return gradYear != null &&
@@ -305,10 +313,11 @@ public class Account {
     }
 
     /**
+     *  Validates if the student number is valid.
+     *  Valid student number must not be null, and must have the right pattern.
      *
-     *
-     * @param studentNo
-     * @return
+     * @param studentNo the student number to validate.
+     * @return a boolean value indicating if the graduation year is valid and false otherwise.
      */
     public static boolean isValidStudentNo(String studentNo) {
         return studentNo != null && STUDENT_NO_PATTERN.matcher(studentNo).matches();
