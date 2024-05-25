@@ -27,7 +27,7 @@ import java.nio.charset.Charset;
 import java.util.Objects;
 
 /**
- * Description //FIXME
+ * The ViewModel in charge of logging in.
  *
  * @author JJ Coldiron
  * @author Danie Oum
@@ -36,13 +36,16 @@ import java.util.Objects;
  */
 public class LoginViewModel extends AndroidViewModel {
 
-    /** Description //FIXME */
+    /**
+     * The response that will be in charge of containing the response of trying to log
+     * the user into the app.
+     */
     private MutableLiveData<JSONObject> mResponse;
 
     /**
-     * Description //FIXME
+     * Initialuizes the mutable live data of this view model and sets it value as a JSONObject.
      *
-     * @param application
+     * @param application the application that will be passed to the parent as context.
      */
     // Sets the response JSON
     public LoginViewModel(@NonNull Application application) {
@@ -53,10 +56,11 @@ public class LoginViewModel extends AndroidViewModel {
     }
 
     /**
-     * Description //FIXME
+     * Adds observer and owner to the response of this view model using the passed
+     * owner and observer.
      *
-     * @param owner
-     * @param observer
+     * @param owner the owner as a life cycle.
+     * @param observer the observer of the response.
      */
     public void addResponseObserver(@NonNull LifecycleOwner owner,
                                     @NonNull Observer<? super JSONObject> observer) {
@@ -64,9 +68,9 @@ public class LoginViewModel extends AndroidViewModel {
     }
 
     /**
-     * Description //FIXME
+     * Handles the errors that get generated after attempting to authenticate a user.
      *
-     * @param error
+     * @param error the error response as a VolleyError.
      */
     private void handleError(final VolleyError error) {
         if (Objects.isNull(error.networkResponse)) {
@@ -92,11 +96,12 @@ public class LoginViewModel extends AndroidViewModel {
     }
 
     /**
-     * Description //FIXME
+     * Authenticates the user, by taking the email and password in the passed account object,
+     * and looking for a match in the database. If the user is not found, then the Response
+     * in this view mode will be set to a JSONObject that will contain the status and the data.
      *
-     * @param account
+     * @param account the account containing the email and password that we want to verify.
      */
-    // This autenticates the user using the passed email and password.
     public void authenticateUser(Account account) {
         String url = "https://students.washington.edu/djruiz49/db_css_compass/login.php"; // The location of the php file in the database
         JSONObject body = new JSONObject();

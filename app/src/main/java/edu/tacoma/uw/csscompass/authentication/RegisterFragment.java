@@ -56,7 +56,6 @@ public class RegisterFragment extends Fragment {
      *
      * @return the View of the inflated layout.
      */
-    // Binding is assigned to the View Bindings (converts the xml into objects that we can interact with programmatically).
     @Override
     public View onCreateView (LayoutInflater inflater,
                               ViewGroup container,

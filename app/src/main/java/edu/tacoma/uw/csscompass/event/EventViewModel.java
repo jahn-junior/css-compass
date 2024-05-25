@@ -22,12 +22,26 @@ import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * An event view model
+ * @author JJ Coldiron
+ * @author Danie Oum
+ * @author Derek Ruiz-Garcia
+ * @version 1.0
+ */
 public class EventViewModel extends AndroidViewModel {
 
+    /** The response that will we used for dealing with getting the events. */
     private MutableLiveData<String> mResponse;
 
+    /** The list of events that will be displayed for the user. */
     private MutableLiveData<List<Event>> mEventList;
 
+    /**
+     * Initializes the response and the event list of this view model.
+     *
+     * @param application the application context to be passed to its parent.
+     */
     public EventViewModel(@NonNull Application application) {
         super(application);
         mResponse = new MutableLiveData<>();
@@ -38,7 +52,11 @@ public class EventViewModel extends AndroidViewModel {
 
     }
 
-    // If we are unable to get the url
+    /**
+     * Handles the error response generated when we fail to get the events from the database.
+     * @param error the error as a VolleyError that will indicate the type of error generated
+     *              when trying to get the events from the online source.
+     */
     private void handleError(final VolleyError error) {
         if (Objects.isNull(error.networkResponse)) {
             mResponse.setValue("{" +
@@ -54,12 +72,25 @@ public class EventViewModel extends AndroidViewModel {
         }
     }
 
+    /**
+     * Adds an observer to the list of events stored in this view model using the passed owner
+     * and the passed observer.
+     * @param owner the owner of the lifecycle.
+     * @param observer the observer that will be looking at the event list stored in this
+     *                event view model.
+     */
     public void addEventListObserver(@NonNull LifecycleOwner owner,
                                      @NonNull Observer<? super List<Event>> observer) {
         mEventList.observe(owner, observer);
     }
 
-    //Here we make sure to parse the string, create the events and add them the list of events.
+    /**
+     * Handles the result when we successfuly retrieve the elements from the xml file.
+     * We parse through it using Patterns, initializing new events using the data in the
+     * result and storing the data in the list of events stored in this event view model.
+     *
+     * @param result the result as a xml String containing the events to be parsed and stored.
+     */
     private void handleResult(final String result) {
 
         String entryPattern = "(<entry>.*?</entry>)";
@@ -80,7 +111,8 @@ public class EventViewModel extends AndroidViewModel {
         mEventList.setValue(mEventList.getValue());
     }
 
-    //We request the data from the events database.
+
+    /** Requests the data from the database. */
     public void getEvents() {
         String url = "https://www.trumba.com/calendars/tac_campus.xml";
 

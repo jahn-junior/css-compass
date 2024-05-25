@@ -20,7 +20,7 @@ import androidx.navigation.ui.NavigationUI;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 /**
- * Description //FIXME
+ * The main activity class that holds the fragments of the app besides the authentication fragments.
  *
  * @author JJ Coldiron
  * @author Danie Oum
@@ -29,11 +29,13 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
  */
 public class MainActivity extends AppCompatActivity {
 
-    /** Description //FIXME */
+    /** The configuration for the app bar. */
     private AppBarConfiguration mAppBarConfiguration;
 
     /**
-     * Description //FIXME
+     * While this activity is being created it sets up the listeners for the bottom bar, stating
+     * the configuration, the fragments to use and where to go after the buttons on the bar are
+     * selected.
      *
      * @param savedInstanceState If the activity is being re-initialized after
      *     previously being shut down then this Bundle contains the data it most
