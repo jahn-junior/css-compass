@@ -29,8 +29,17 @@ import edu.tacoma.uw.csscompass.databinding.FragmentCourseListBinding;
  */
 public class CourseListFragment extends Fragment {
 
+    /**
+     * The model to be used in this fragment.
+     */
     private ClassesViewModel mModel;
 
+    /**
+     * Initializes the classes view model stored in this fragment.
+     *
+     * @param savedInstanceState If the fragment is being re-created from
+     * a previous saved state, this is the state.
+     */
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +56,14 @@ public class CourseListFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_course_list, container, false);
     }
 
+    /**
+     * Gets the view from the fragment course list binding, and if there are courses
+     * on the list of courses then it calls the recycler view adapter for the classes.
+     *
+     * @param view The View returned by {@link #onCreateView(LayoutInflater, ViewGroup, Bundle)}.
+     * @param savedInstanceState If non-null, this fragment is being re-constructed
+     * from a previous saved state as given here.
+     */
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -54,10 +71,10 @@ public class CourseListFragment extends Fragment {
 
         @NonNull FragmentCourseListBinding binding = FragmentCourseListBinding.bind(getView());
 
-        mModel.addAnimalListObserver(getViewLifecycleOwner(), animalList -> {
-            if (!animalList.isEmpty()) {
+        mModel.addClassListObserver(getViewLifecycleOwner(), classList -> {
+            if (!classList.isEmpty()) {
                 binding.layoutRoot.setAdapter(
-                        new ClassesRecyclerViewAdapter(animalList)
+                        new ClassesRecyclerViewAdapter(classList)
                 );
             }
         });

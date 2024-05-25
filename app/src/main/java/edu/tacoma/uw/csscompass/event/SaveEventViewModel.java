@@ -23,16 +23,21 @@ import java.util.Objects;
 
 import edu.tacoma.uw.csscompass.authentication.Account;
 
+/**
+ * A save event view model in charge of saving events in the database.
+ *
+ * @author JJ Coldiron
+ * @author Danie Oum
+ * @author Derek Ruiz-Garcia
+ * @version 1.0
+ */
 public class SaveEventViewModel extends AndroidViewModel {
 
-    /**
-     * The response that will contain the outcome of trying to add an event to the database
-     */
+    /** The response that will contain the outcome of trying to add an event to the database. */
     private MutableLiveData<JSONObject> mResponse;
 
     /**
      * Sets up the response, initializing the view model with the passed application.
-     *
      * @param application the application used to initialize this View Model.
      */
     public SaveEventViewModel(@NonNull Application application) {
@@ -43,7 +48,6 @@ public class SaveEventViewModel extends AndroidViewModel {
 
     /**
      * This adds the observer that will be looking for a response stored in this ViewModel.
-     *
      * @param owner the owner of the response as a LifecycleOwner.
      * @param observer the observer of the response as a Observer<? super JSONObject>.
      */
@@ -81,7 +85,12 @@ public class SaveEventViewModel extends AndroidViewModel {
         }
     }
 
-    //Saves an event for the user.
+    /**
+     * Saves the passed event in the database for the user that has the provided user email.
+     *
+     * @param userEmail the email of the user that wants to store the event.
+     * @param event the event that we want to store in the database.
+     */
     public void saveEvent(String userEmail, Event event) {
         String url = "https://students.washington.edu/djruiz49/db_css_compass/add_event.php";
 

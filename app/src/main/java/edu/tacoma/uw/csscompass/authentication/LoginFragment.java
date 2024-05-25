@@ -130,7 +130,8 @@ public class LoginFragment extends Fragment {
     }
 
     /**
-     * This reacts to the response obtained from trying to login a user into the app.
+     * This reacts to the response obtained from trying to login a user into the app. Saving the
+     * user information of the user that logged in, and starting the main activity using an intent.
      *
      * @param response the response obtained from trying to log in the user into the
      *                 app as a JSONObject.
@@ -160,7 +161,6 @@ public class LoginFragment extends Fragment {
                         sharedPreferences.edit().putBoolean(getString(R.string.LOGGEDIN), true)
                                 .commit();
                         //Go to the mainActivity after logging in.
-                        Log.v("LOGGED IN", response.toString());
                         Intent intent = new Intent(getContext(), MainActivity.class); //Create an intent to go to the mainActivity
 
                         //Save the user data in shared preferences.

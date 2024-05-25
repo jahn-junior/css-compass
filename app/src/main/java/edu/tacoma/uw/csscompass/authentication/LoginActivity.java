@@ -20,7 +20,7 @@ import edu.tacoma.uw.csscompass.MainActivity;
 import edu.tacoma.uw.csscompass.R;
 
 /**
- * Description //FIXME
+ * The login activity in charge of authentication.
  *
  * @author JJ Coldiron
  * @author Danie Oum
@@ -33,7 +33,8 @@ public class LoginActivity extends AppCompatActivity {
     private SharedPreferences mSharedPreferences;
 
     /**
-     * Description //FIXME
+     * Sets up the shared preferences, sets the host fragment, and checks if the user its
+     * already logged in, and if it is, then it immediately starts the main activity of the app.
      *
      * @param savedInstanceState If the activity is being re-initialized after
      *     previously being shut down then this Bundle contains the data it most
