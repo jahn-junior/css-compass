@@ -39,10 +39,16 @@ import java.util.Objects;
  */
 public class ClassesViewModel extends AndroidViewModel {
 
+    /** The response in this view model used to manage the retrieval of classes in the database. */
     private MutableLiveData<JSONObject> mResponse;
 
+    /** The list of classes. */
     private MutableLiveData<List<Classes>> mClassesList;
 
+    /**
+     * Initializes the response and list of classes in this view model
+     * @param application the application context to pass to the parent.
+     */
     public ClassesViewModel(@NonNull Application application) {
         super(application);
         mResponse = new MutableLiveData<>();
@@ -51,11 +57,21 @@ public class ClassesViewModel extends AndroidViewModel {
         mClassesList.setValue(new ArrayList<>());
     }
 
+    /**
+     * Adds an observer to the response using the passed owner and observer.
+     * @param owner the life cycle owner.
+     * @param observer the observer of the response.
+     */
     public void addResponseObserver(@NonNull LifecycleOwner owner,
                                     @NonNull Observer<? super JSONObject> observer) {
         mResponse.observe(owner, observer);
     }
 
+    /**
+     * Handles the error generated when failing to retrieve the classes from the database.
+     * @param error the error generated when failing to get the classes from the database as
+     *              a VolleyError.
+     */
     private void handleError(final VolleyError error) {
         if (Objects.isNull(error.networkResponse)) {
             try {
@@ -79,11 +95,20 @@ public class ClassesViewModel extends AndroidViewModel {
         }
     }
 
-    public void addAnimalListObserver(@NonNull LifecycleOwner owner,
+    /**
+     * Adds an observer for the list or classes stored in this view model.
+     * @param owner the lifecycle owner.
+     * @param observer the observer of the list of classes.
+     */
+    public void addClassListObserver(@NonNull LifecycleOwner owner,
                                       @NonNull Observer<? super List<Classes>> observer) {
         mClassesList.observe(owner, observer);
     }
 
+    /**
+     * Handles the result obtained when trying to get the classes from the database.
+     * @param result the result containing the classes from the database as a JSONObject.
+     */
     private void handleResult(final JSONObject result) {
         try {
             String data = result.getString("classes");
@@ -104,6 +129,7 @@ public class ClassesViewModel extends AndroidViewModel {
         mClassesList.setValue(mClassesList.getValue());
     }
 
+    /** Retrieves the classes from the database. */
     public void getClasses() {
         String url =
                 "https://students.washington.edu/danieoum/db_css_compass/get_classes.php";
